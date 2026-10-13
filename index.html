@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kuis Family 100 - Bimbel Golden Kids</title>
+<title>Family 100 Bimbel Golden Kids</title>
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,9 +28,9 @@ body{
   min-height:100vh;
 }
 .wrap{
-  max-width:1380px;
+  max-width:1440px;
   margin:auto;
-  padding:8px 16px;
+  padding:8px 18px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -41,153 +41,155 @@ body{
 header{
   display:flex;
   align-items:center;
-  gap:14px;
-  padding:2px 0 6px;
+  gap:16px;
+  padding:4px 0 8px;
   flex:none;
 }
 #logo{
-  height:48px;
+  height:50px;
   width:auto;
-  max-width:105px;
+  max-width:115px;
   object-fit:contain;
   filter:drop-shadow(0 2px 6px rgba(0,0,0,.4));
   flex:none;
 }
 .logo{
-  width:48px;
-  height:48px;
+  width:50px;
+  height:50px;
   border-radius:50%;
   background:#ffffff22;
   display:grid;
   place-items:center;
-  font-size:26px;
+  font-size:28px;
   flex:none;
 }
 .h-titles{
   flex:1;
   display:flex;
-  flex-direction:column;
-  gap:1px;
-}
-.h-sub{
-  font-size:0.75rem;
-  font-weight:800;
-  letter-spacing:1.5px;
-  color:#93c5fd;
-  text-transform:uppercase;
+  align-items:center;
 }
 h1{
   font-family:'Merriweather','Georgia',serif;
-  font-size:clamp(1.15rem, 2.2vh, 1.55rem);
-  font-weight:700;
+  font-size:clamp(1.3rem, 2.7vh, 1.85rem);
+  font-weight:800;
   color:#ffffff;
-  line-height:1.15;
+  line-height:1.2;
   letter-spacing:0.5px;
-}
-.h-class{
-  font-size:0.75rem;
-  font-weight:700;
-  letter-spacing:1px;
-  color:#93c5fd;
-  text-transform:uppercase;
+  text-shadow:0 2px 8px rgba(0,0,0,0.5);
 }
 .h-tools{
   display:flex;
-  gap:6px;
+  gap:8px;
   align-items:center;
 }
 .tool-btn{
-  background:#ffffff12;
-  border:1px solid #ffffff28;
-  border-radius:8px;
-  font-size:0.85rem;
-  padding:4px 8px;
+  background:#ffffff15;
+  border:1.5px solid #ffffff2e;
+  border-radius:10px;
+  font-size:0.88rem;
+  font-weight:800;
+  padding:6px 14px;
   cursor:pointer;
   transition:.2s;
   color:#fff;
+  display:flex;
+  align-items:center;
+  gap:6px;
 }
 .tool-btn:hover{
-  background:#ffffff24;
+  background:#ffffff26;
+  border-color:#38bdf8;
+  transform:translateY(-1px);
 }
 
-/* Main */
+/* Main Grid Layout */
 main{
   flex:1;
   min-height:0;
   display:grid;
   grid-template-areas:"a c b";
-  grid-template-columns:205px 1fr 205px;
-  gap:12px;
+  grid-template-columns:clamp(240px, 20vw, 295px) minmax(0, 1fr) clamp(240px, 20vw, 295px);
+  gap:16px;
   align-items:stretch;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
 
-/* Team Panels */
+/* Team Panels (Besar & Jelas untuk Guru / Infokus) */
 .team{
   background:var(--team-bg);
-  border:2px solid var(--team-border);
-  border-radius:20px;
-  padding:14px 10px;
+  border:2.5px solid var(--team-border);
+  border-radius:22px;
+  padding:16px 12px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   position:relative;
   transition:all .3s;
-  box-shadow:0 8px 24px rgba(0,0,0,0.3);
+  box-shadow:0 8px 24px rgba(0,0,0,0.35);
 }
 #t0{grid-area:a}
 #t1{grid-area:b}
 .team.on{
   border-color:var(--gold);
-  box-shadow:0 0 18px rgba(255,190,26,0.4), inset 0 0 12px rgba(255,190,26,0.08);
+  box-shadow:0 0 22px rgba(255,190,26,0.45), inset 0 0 12px rgba(255,190,26,0.1);
 }
 .panel-label{
-  font-size:0.72rem;
+  font-size:0.8rem;
   font-weight:800;
-  letter-spacing:1.5px;
+  letter-spacing:2px;
   color:#94a3b8;
   text-transform:uppercase;
 }
 .tn{
-  font-weight:800;
-  font-size:1.25rem;
+  font-weight:900;
+  font-size:1.45rem;
   color:#ffffff;
   outline:0;
-  margin-top:3px;
+  margin-top:4px;
+  text-align:center;
+  cursor:pointer;
+  border-radius:8px;
+  padding:2px 8px;
+  border:1.5px dashed transparent;
+  transition:all .2s;
+}
+.tn:hover, .tn:focus{
+  border-color:#38bdf8;
+  background:#ffffff10;
 }
 .team-divider{
-  width:78%;
+  width:82%;
   border-bottom:1.5px dotted #234078;
-  margin:8px 0;
+  margin:10px 0;
 }
 .sc{
   font-family:'Merriweather','Georgia',serif;
-  font-size:clamp(3rem, 6.8vh, 4.3rem);
+  font-size:clamp(3.6rem, 8.5vh, 5.2rem);
   font-weight:700;
   color:var(--gold);
   line-height:1;
-  text-shadow:0 2px 8px rgba(0,0,0,0.4);
+  text-shadow:0 3px 12px rgba(0,0,0,0.5), 0 0 16px rgba(255,190,26,0.25);
 }
 .sc-label{
-  font-size:0.72rem;
+  font-size:0.78rem;
   font-weight:800;
-  letter-spacing:1px;
+  letter-spacing:1.5px;
   color:#94a3b8;
   text-transform:uppercase;
-  margin-top:4px;
+  margin-top:6px;
 }
 .xs{
   display:flex;
   justify-content:center;
-  gap:8px;
-  margin-top:10px;
+  gap:10px;
+  margin-top:14px;
 }
 .x-badge{
-  width:32px;
-  height:32px;
+  width:36px;
+  height:36px;
   border-radius:50%;
-  border:1.5px solid #233f75;
+  border:2px solid #233f75;
   background:#07173a;
   display:grid;
   place-items:center;
@@ -195,14 +197,14 @@ main{
 }
 .x-mark{
   color:#3b568c;
-  font-size:0.95rem;
+  font-size:1.1rem;
   font-weight:900;
   line-height:1;
 }
 .x-badge.active{
   border-color:#ef4444;
-  background:rgba(239,68,68,0.2);
-  box-shadow:0 0 10px rgba(239,68,68,0.4);
+  background:rgba(239,68,68,0.22);
+  box-shadow:0 0 12px rgba(239,68,68,0.45);
   animation:shake .4s;
 }
 .x-badge.active .x-mark{
@@ -210,59 +212,64 @@ main{
   text-shadow:0 0 6px #ef4444;
 }
 
-/* Center Board */
+/* Center Board (Sedikit diperkecil lebarnya, Soal dibesarkan untuk infokus) */
 .board{
   grid-area:c;
   background:var(--board-bg);
   border:2.5px solid var(--gold);
-  box-shadow:0 0 20px rgba(255,190,26,0.22), 0 8px 30px rgba(0,0,0,0.4);
-  border-radius:22px;
-  padding:12px 18px 16px;
+  box-shadow:0 0 24px rgba(255,190,26,0.25), 0 8px 30px rgba(0,0,0,0.4);
+  border-radius:24px;
+  padding:14px 20px 18px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   height:100%;
   min-height:0;
   box-sizing:border-box;
+  max-width:890px;
+  margin:0 auto;
+  width:100%;
 }
 .q-pill{
   background:var(--gold);
-  color:#0f172a;
-  font-weight:800;
-  font-size:0.76rem;
-  letter-spacing:0.8px;
+  color:#071940;
+  font-weight:900;
+  font-size:clamp(0.85rem, 1.8vh, 1.05rem);
+  letter-spacing:1.4px;
   text-transform:uppercase;
   border-radius:99px;
-  padding:3px 18px;
+  padding:4px 22px;
   margin:0 auto 6px;
   display:table;
-  box-shadow:0 2px 6px rgba(0,0,0,0.2);
+  box-shadow:0 3px 8px rgba(0,0,0,0.3);
   flex:none;
 }
+/* Pertanyaan Kuis Besar & Jelas Terlihat dari Belakang Kelas */
 .q{
   font-family:'Merriweather','Georgia',serif;
   font-weight:900;
-  font-size:clamp(1.35rem, 2.7vh, 1.95rem);
+  font-size:clamp(1.75rem, 3.8vh, 2.75rem);
   color:#ffffff;
   text-align:center;
-  margin-bottom:10px;
-  line-height:1.25;
-  letter-spacing:0.3px;
-  text-shadow:0 2px 6px rgba(0,0,0,0.5);
+  margin-bottom:12px;
+  line-height:1.24;
+  letter-spacing:0.4px;
+  text-shadow:0 3px 12px rgba(0,0,0,0.8), 0 0 24px rgba(11,37,92,0.9);
   flex:none;
+  padding:0 8px;
 }
 .cards{
   display:flex;
   flex-direction:column;
-  gap:6px;
+  gap:8px;
   flex:1;
   min-height:0;
   justify-content:space-between;
 }
 .card{
   flex:1;
-  min-height:38px;
-  max-height:58px;
+  min-height:42px;
+  max-height:64px;
   height:auto;
   position:relative;
   perspective:900px;
@@ -288,47 +295,48 @@ main{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 8px 0 6px;
+  padding:0 10px 0 8px;
   font-weight:800;
 }
 .front{
   background:var(--card-bg);
-  border:2px solid var(--card-border);
+  border:2.5px solid var(--card-border);
   box-shadow:0 4px 10px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
 }
 .card.sel .front{
-  outline:3px solid var(--gold);
+  outline:3.5px solid var(--gold);
   outline-offset:2px;
 }
 .front .num-badge{
-  width:32px;
-  height:32px;
+  width:34px;
+  height:34px;
   border-radius:50%;
   background:#ffffff;
   color:#0c2d60;
   display:grid;
   place-items:center;
-  font-size:1rem;
+  font-size:1.05rem;
   font-weight:900;
   box-shadow:0 2px 4px rgba(0,0,0,0.2);
   flex:none;
 }
 .front .ans-placeholder{
   color:#ffffff;
-  letter-spacing:0.8px;
-  font-size:clamp(0.85rem, 1.7vh, 1.1rem);
+  letter-spacing:1px;
+  font-size:clamp(0.95rem, 2vh, 1.25rem);
   text-transform:uppercase;
   flex:1;
   text-align:center;
-  font-weight:800;
+  font-weight:900;
+  text-shadow:0 1px 4px rgba(0,0,0,0.4);
 }
 .front .pts-badge{
   font-style:normal;
   background:var(--pts-bg);
   color:#ffffff;
   border-radius:99px;
-  padding:4px 14px;
-  font-size:0.95rem;
+  padding:4px 15px;
+  font-size:1rem;
   font-weight:900;
   box-shadow:0 2px 6px rgba(0,0,0,0.25);
   flex:none;
@@ -347,14 +355,14 @@ main{
   box-shadow:0 0 20px rgba(248, 113, 113, 0.45), 0 4px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
 }
 .back .num-badge{
-  width:32px;
-  height:32px;
+  width:34px;
+  height:34px;
   border-radius:50%;
   background:#ffffff;
   color:#15803d;
   display:grid;
   place-items:center;
-  font-size:1rem;
+  font-size:1.05rem;
   font-weight:900;
   flex:none;
   box-shadow:0 2px 4px rgba(0,0,0,0.25);
@@ -370,20 +378,21 @@ main{
 }
 .back .ans-text{
   color:#ffffff;
-  font-size:clamp(0.9rem, 1.8vh, 1.25rem);
+  font-size:clamp(1.05rem, 2.2vh, 1.45rem);
   font-weight:900;
   text-transform:uppercase;
   flex:1;
   text-align:center;
-  letter-spacing:0.5px;
+  letter-spacing:0.6px;
+  text-shadow:0 1px 3px rgba(0,0,0,0.4);
 }
 .back .pts-badge{
   font-style:normal;
   background:var(--pts-bg);
   color:#ffffff;
   border-radius:99px;
-  padding:4px 14px;
-  font-size:0.95rem;
+  padding:4px 15px;
+  font-size:1rem;
   font-weight:900;
   flex:none;
 }
@@ -405,9 +414,9 @@ main{
   flex:1;
   min-width:0;
   font:inherit;
-  font-size:15px;
+  font-size:16px;
   font-weight:700;
-  padding:8px 14px;
+  padding:9px 14px;
   border-radius:10px;
   border:2px solid #cbd5e1;
   background:#ffffff;
@@ -437,13 +446,13 @@ button:active{transform:translateY(1px)}
   background:#10b981;
   color:#ffffff;
   border-radius:10px;
-  padding:0 16px;
+  padding:0 18px;
   font-weight:800;
-  font-size:0.85rem;
+  font-size:0.88rem;
   line-height:1.2;
   text-align:center;
   flex:none;
-  min-width:92px;
+  min-width:96px;
 }
 
 .btns{
@@ -474,7 +483,7 @@ button:active{transform:translateY(1px)}
 
 .help-text{
   text-align:center;
-  font-size:0.78rem;
+  font-size:0.8rem;
   font-weight:700;
   color:#38bdf8;
   margin-top:6px;
@@ -484,39 +493,343 @@ button:active{transform:translateY(1px)}
 #fl.g{background:#22c55e;animation:fl .7s}#fl.r{background:#ef4444;animation:fl .7s}
 #bigx{position:fixed;inset:0;display:none;place-items:center;font-size:55vmin;pointer-events:none;z-index:60;text-shadow:0 0 40px #000a}
 #bigx.show{display:grid;animation:pop 1s forwards}
-#toast{position:fixed;left:50%;top:max(12px,env(safe-area-inset-top));transform:translate(-50%,-150%);padding:10px 20px;border-radius:14px;font-weight:800;z-index:70;transition:.35s;max-width:92vw;text-align:center;box-shadow:0 6px 20px #0008}
+#toast{position:fixed;left:50%;top:max(12px,env(safe-area-inset-top));transform:translate(-50%,-150%);padding:10px 22px;border-radius:14px;font-weight:800;z-index:70;transition:.35s;max-width:92vw;text-align:center;box-shadow:0 6px 20px #0008;font-size:0.95rem}
 #toast.show{transform:translate(-50%,0)}
 .pts{position:absolute;left:50%;top:30%;transform:translateX(-50%);background:#10b981;color:#fff;font-weight:800;font-size:1.3rem;padding:2px 14px;border-radius:99px;white-space:nowrap;pointer-events:none;animation:rise 1.5s forwards;z-index:5}
-dialog{border:2px solid #38bdf8;border-radius:20px;padding:20px 24px;width:min(92vw,530px);background:#0b1f48;color:#fff;box-shadow:0 12px 40px rgba(0,0,0,0.8),0 0 24px rgba(56,189,248,0.3);margin:auto;max-height:86vh;overflow-y:auto}
-dialog::backdrop{background:#000c;backdrop-filter:blur(4px)}
-dialog h2{color:var(--gold);margin:0 0 12px;font-family:'Merriweather',serif;font-size:1.35rem;text-align:center;border-bottom:1.5px solid #1e3a70;padding-bottom:8px}
-dialog label{display:block;font-weight:800;margin:10px 0 4px;font-size:0.88rem;color:#93c5fd;text-transform:uppercase;letter-spacing:0.5px}
-dialog select,dialog textarea,dialog input{width:100%;font:inherit;font-size:15px;font-weight:700;padding:8px 12px;border-radius:8px;border:1.5px solid #254b8c;background:#ffffff;color:#0f172a;outline:none;transition:border-color .2s}
-dialog select:focus,dialog textarea:focus,dialog input:focus{border-color:#38bdf8;box-shadow:0 0 0 2px rgba(56,189,248,0.3)}
-dialog small{display:block;margin:10px 0 14px;font-size:0.78rem;line-height:1.4;color:#94a3b8;background:#071530;padding:8px 12px;border-radius:8px;border:1px solid #172d57}
-dialog small b{color:#ffbe1a}
-.dialog-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-.dialog-btns button{height:42px;font-size:0.95rem;font-weight:800;border-radius:10px;color:#ffffff!important;display:flex;align-items:center;justify-content:center;cursor:pointer;border:0;transition:filter .15s,transform .1s}
-.dialog-btns button:hover{filter:brightness(1.15)}
-#eSave{background:#10b981!important;box-shadow:0 3px 0 #059669}
-#eClose{background:#334155!important;border:1px solid #475569!important;box-shadow:0 3px 0 #1e293b}
-#eReset{background:#dc2626!important;box-shadow:0 3px 0 #991b1b}
-#wAgain{background:#10b981!important;color:#fff!important;height:44px;border-radius:10px;font-weight:800;font-size:1rem}
-#wClose{background:#334155!important;color:#fff!important;height:44px;border-radius:10px;font-weight:800;font-size:1rem;border:1px solid #475569}
+
+/* Win Modal */
 #win{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:900;padding:14px}
 #win.show{display:grid}
 .wb{background:linear-gradient(180deg,#0f2b66,#081c45);border:3px solid var(--gold);border-radius:24px;padding:22px;text-align:center;width:min(94vw,520px);max-height:90vh;overflow-y:auto;animation:pop2 .6s}
 .wb h2{font-size:clamp(1.8rem,7vw,2.8rem);color:var(--gold);font-family:'Merriweather',serif}
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
 .vs div{background:#ffffff1f;border-radius:14px;padding:10px;font-weight:700}.vs b{display:block;font-size:2.4rem;color:var(--gold);line-height:1.1;font-family:'Merriweather',serif}
+#wAgain{background:#10b981!important;color:#fff!important;height:44px;border-radius:10px;font-weight:800;font-size:1rem}
+#wClose{background:#334155!important;color:#fff!important;height:44px;border-radius:10px;font-weight:800;font-size:1rem;border:1px solid #475569}
 #fx{position:fixed;inset:0;pointer-events:none;z-index:1000}
+
+/* Dialog Editor Soal Lengkap & Bebas */
+dialog#ed{
+  border:2.5px solid var(--gold);
+  border-radius:22px;
+  padding:0;
+  width:min(95vw, 680px);
+  max-height:88vh;
+  background:#081b42;
+  color:#fff;
+  box-shadow:0 16px 50px rgba(0,0,0,0.85), 0 0 30px rgba(255,190,26,0.25);
+  margin:auto;
+  overflow:hidden;
+  display:none;
+  flex-direction:column;
+}
+dialog#ed[open]{
+  display:flex;
+}
+dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
+
+.ed-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 20px;
+  background:#051433;
+  border-bottom:1.5px solid #1a3870;
+}
+.ed-header h2{
+  color:var(--gold);
+  margin:0;
+  font-family:'Merriweather',serif;
+  font-size:1.3rem;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.ed-close-x{
+  background:#ffffff15;
+  border:1px solid #ffffff28;
+  color:#cbd5e1;
+  border-radius:8px;
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  font-size:1.1rem;
+  transition:.2s;
+}
+.ed-close-x:hover{
+  background:#dc2626;
+  border-color:#ef4444;
+  color:#fff;
+}
+
+.ed-body{
+  padding:16px 20px;
+  overflow-y:auto;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* Nav Toolbar in Editor */
+.ed-nav-bar{
+  display:flex;
+  gap:10px;
+  align-items:flex-end;
+}
+.ed-select-group{
+  flex:1;
+  min-width:0;
+}
+.ed-select-group label{
+  display:block;
+  font-size:0.75rem;
+  font-weight:800;
+  color:#93c5fd;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:4px;
+}
+.ed-select-group select{
+  width:100%;
+  font:inherit;
+  font-size:14px;
+  font-weight:700;
+  padding:8px 12px;
+  border-radius:8px;
+  border:1.5px solid #254b8c;
+  background:#ffffff;
+  color:#0f172a;
+  outline:none;
+}
+.ed-nav-actions{
+  display:flex;
+  gap:6px;
+  flex:none;
+}
+.btn-tool-sm{
+  height:38px;
+  padding:0 12px;
+  font-size:0.85rem;
+  font-weight:800;
+  border-radius:8px;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  cursor:pointer;
+}
+.btn-green{background:#10b981;box-shadow:0 2px 0 #059669}
+.btn-danger{background:#dc2626;box-shadow:0 2px 0 #991b1b}
+.btn-blue{background:#2563eb;box-shadow:0 2px 0 #1d4ed8}
+
+/* Pager in modal */
+.ed-pager{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#051333;
+  padding:6px 12px;
+  border-radius:10px;
+  border:1px solid #163366;
+}
+.btn-pager{
+  background:#1e3a70;
+  color:#cbd5e1;
+  font-size:0.8rem;
+  font-weight:800;
+  padding:5px 12px;
+  border-radius:6px;
+}
+.btn-pager:hover:not(:disabled){
+  background:#2563eb;
+  color:#fff;
+}
+.btn-pager:disabled{
+  opacity:0.4;
+  cursor:not-allowed;
+}
+.q-num-badge{
+  font-size:0.85rem;
+  font-weight:800;
+  color:var(--gold);
+  letter-spacing:0.5px;
+}
+
+/* Question textarea */
+.ed-field label{
+  display:block;
+  font-size:0.78rem;
+  font-weight:800;
+  color:#93c5fd;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:4px;
+}
+.ed-field textarea{
+  width:100%;
+  font:inherit;
+  font-size:15px;
+  font-weight:700;
+  padding:9px 12px;
+  border-radius:8px;
+  border:1.5px solid #254b8c;
+  background:#ffffff;
+  color:#0f172a;
+  outline:none;
+  resize:vertical;
+}
+.ed-field textarea:focus{
+  border-color:#38bdf8;
+  box-shadow:0 0 0 2px rgba(56,189,248,0.3);
+}
+
+/* 5 Answer Fields with Points */
+.ed-answers-heading{
+  font-size:0.78rem;
+  font-weight:800;
+  color:#93c5fd;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-top:2px;
+}
+.ed-answers-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.ed-ans-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#06183d;
+  border:1.5px solid #18376e;
+  border-radius:10px;
+  padding:6px 10px;
+}
+.ed-ans-pts{
+  flex:none;
+  width:88px;
+  text-align:center;
+  padding:5px 6px;
+  border-radius:8px;
+  font-size:0.82rem;
+  font-weight:900;
+  color:#fff;
+  letter-spacing:0.5px;
+}
+.ed-ans-input-wrap{
+  flex:1;
+  min-width:0;
+}
+.ed-ans-input-wrap label{
+  display:block;
+  font-size:0.68rem;
+  font-weight:800;
+  color:#94a3b8;
+  margin-bottom:2px;
+  text-transform:uppercase;
+}
+.ed-ans-input-wrap input{
+  width:100%;
+  font:inherit;
+  font-size:14px;
+  font-weight:700;
+  padding:6px 10px;
+  border-radius:6px;
+  border:1.5px solid #294e90;
+  background:#ffffff;
+  color:#0f172a;
+  outline:none;
+}
+.ed-ans-input-wrap input:focus{
+  border-color:#38bdf8;
+  box-shadow:0 0 0 2px rgba(56,189,248,0.3);
+}
+
+.ed-tip{
+  background:#04112c;
+  border:1px solid #142f5e;
+  border-radius:8px;
+  padding:8px 12px;
+  font-size:0.78rem;
+  line-height:1.4;
+  color:#94a3b8;
+}
+.ed-tip b{color:var(--gold)}
+.ed-tip code{background:#0e295e;padding:1px 5px;border-radius:4px;color:#7dd3fc;font-family:inherit;font-weight:800}
+
+/* Backup details */
+.ed-backup{
+  background:#051333;
+  border:1px solid #18376e;
+  border-radius:8px;
+  padding:8px 12px;
+  font-size:0.82rem;
+}
+.ed-backup summary{
+  cursor:pointer;
+  font-weight:800;
+  color:#93c5fd;
+  user-select:none;
+}
+.ed-backup-box{
+  margin-top:8px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.ed-backup-box p{
+  font-size:0.75rem;
+  color:#94a3b8;
+  margin:0;
+}
+.ed-backup-box textarea{
+  width:100%;
+  font-family:monospace;
+  font-size:12px;
+  padding:6px 8px;
+  border-radius:6px;
+  background:#ffffff;
+  color:#0f172a;
+  border:1px solid #20407a;
+}
+.ed-backup-btns{
+  display:flex;
+  gap:8px;
+}
+
+/* Dialog Footer Buttons */
+.dialog-btns{
+  padding:12px 20px;
+  background:#051433;
+  border-top:1.5px solid #1a3870;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:10px;
+}
+.dialog-btns button{
+  height:42px;
+  font-size:0.92rem;
+  font-weight:800;
+  border-radius:10px;
+  color:#ffffff!important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#eSave{background:#10b981!important;box-shadow:0 3px 0 #059669}
+#eReset{background:#dc2626!important;box-shadow:0 3px 0 #991b1b}
+#eClose{background:#334155!important;border:1px solid #475569!important;box-shadow:0 3px 0 #1e293b}
 
 /* Desktop 100vh lock */
 @media(min-width:900px){
   html,body{height:100vh;max-height:100vh;overflow:hidden;padding:0}
   .wrap{height:100vh;max-height:100vh}
 }
-@media(min-width:900px) and (max-height:520px){
+@media(min-width:900px) and (max-height:540px){
   html,body{height:auto;overflow-y:auto}
   .wrap{height:auto;min-height:100vh}
 }
@@ -528,6 +841,7 @@ dialog small b{color:#ffbe1a}
   .btns{grid-template-columns:repeat(2,1fr)}
   body{overflow-y:auto;min-height:100vh}
   .wrap{height:auto;min-height:100vh}
+  .dialog-btns{grid-template-columns:1fr}
 }
 
 @keyframes pop{0%{transform:scale(.2);opacity:0}25%{transform:scale(1);opacity:1}80%{opacity:1}100%{transform:scale(1.15);opacity:0}}
@@ -544,20 +858,18 @@ dialog small b{color:#ffbe1a}
 <header>
   <img id="logo" src="logo.png" alt="Family 100" onerror="this.outerHTML='<span class=logo>🌟</span>'">
   <div class="h-titles">
-    <div class="h-sub">GAME KELAS • KUIS SURVEI</div>
-    <h1>FAMILY 100 – PENGETAHUAN UMUM SD</h1>
-    <div class="h-class">KELAS 3–6 SD</div>
+    <h1>Family 100 Bimbel Golden Kids</h1>
   </div>
   <div class="h-tools">
-    <button id="bPrev" class="tool-btn" title="Soal Sebelumnya">⬅️</button>
-    <button id="bEdit" class="tool-btn" title="Edit Soal">✏️</button>
-    <button id="bSnd" class="tool-btn" title="Tes Suara">🔊</button>
+    <button id="bPrev" class="tool-btn" title="Soal Sebelumnya">⬅️ Soal Sebelumnya</button>
+    <button id="bEdit" class="tool-btn" title="Kelola &amp; Edit Soal Bebas">✏️ Edit Soal</button>
+    <button id="bSnd" class="tool-btn" title="Tes Suara">🔊 Tes Suara</button>
   </div>
 </header>
 <main>
   <section class="team" id="t0">
     <div class="panel-label">PANEL PEMAIN</div>
-    <span class="tn" id="n0" contenteditable="true" spellcheck="false">TIM 1</span>
+    <span class="tn" id="n0" contenteditable="true" spellcheck="false" title="Klik untuk ubah nama tim">TIM 1</span>
     <div class="team-divider"></div>
     <div class="sc" id="s0">0</div>
     <div class="sc-label">TOTAL POIN</div>
@@ -570,7 +882,7 @@ dialog small b{color:#ffbe1a}
   </section>
   <section class="team" id="t1">
     <div class="panel-label">PANEL PEMAIN</div>
-    <span class="tn" id="n1" contenteditable="true" spellcheck="false">TIM 2</span>
+    <span class="tn" id="n1" contenteditable="true" spellcheck="false" title="Klik untuk ubah nama tim">TIM 2</span>
     <div class="team-divider"></div>
     <div class="sc" id="s1">0</div>
     <div class="sc-label">TOTAL POIN</div>
@@ -578,7 +890,10 @@ dialog small b{color:#ffbe1a}
   </section>
 </main>
 <section class="ctl">
-  <div class="row"><input id="inp" placeholder="Ketik jawaban murid…" autocomplete="off" autocapitalize="sentences" enterkeyhint="go"><button class="go" id="chk">Cek<br>Jawaban</button></div>
+  <div class="row">
+    <input id="inp" placeholder="Ketik jawaban murid…" autocomplete="off" autocapitalize="sentences" enterkeyhint="go">
+    <button class="go" id="chk">Cek<br>Jawaban</button>
+  </div>
   <div class="btns">
     <button class="btn-blue" id="bYes">Benar</button>
     <button class="btn-red" id="bNo">Salah / ✕</button>
@@ -595,15 +910,84 @@ dialog small b{color:#ffbe1a}
 <div id="fl"></div><div id="bigx">❌</div><div id="toast"></div>
 <canvas id="fx"></canvas>
 
-<div id="win"><div class="wb"><div style="font-size:3rem">🏆</div><h2 id="wt"></h2><div class="vs"><div><span id="wn0"></span><b id="ws0"></b></div><div><span id="wn1"></span><b id="ws1"></b></div></div><p style="font-weight:800">Total poin: <span id="wtot"></span></p><div class="row" style="margin-top:14px"><button class="go" style="flex:1" id="wAgain">Main Lagi</button><button style="flex:1" id="wClose">Tutup</button></div></div></div>
+<div id="win">
+  <div class="wb">
+    <div style="font-size:3rem">🏆</div>
+    <h2 id="wt"></h2>
+    <div class="vs">
+      <div><span id="wn0"></span><b id="ws0"></b></div>
+      <div><span id="wn1"></span><b id="ws1"></b></div>
+    </div>
+    <p style="font-weight:800">Total poin: <span id="wtot"></span></p>
+    <div class="row" style="margin-top:14px">
+      <button class="go" style="flex:1" id="wAgain">Main Lagi</button>
+      <button style="flex:1" id="wClose">Tutup</button>
+    </div>
+  </div>
+</div>
 
+<!-- Modal Dialog: Kelola & Edit Soal Bebas -->
 <dialog id="ed">
-  <h2>Edit Soal &amp; Jawaban</h2>
-  <label for="es">Pilih soal</label><select id="es"></select>
-  <label for="eq">Pertanyaan</label><textarea id="eq" rows="2"></textarea>
-  <div id="ea"></div>
-  <small>Isi jawaban murid. Jawaban 1 = 100 poin, 2 = 80, 3 = 60, 4 = 40, 5 = 20. Untuk kata lain yang dianggap sama, pisahkan dengan garis miring, contoh: <b>Sepak Bola/bola/futsal</b>. Tersimpan otomatis di perangkat ini.</small>
-  <div class="dialog-btns"><button id="eSave">Simpan</button><button id="eClose">Tutup</button><button id="eReset">Reset Semua</button></div>
+  <div class="ed-header">
+    <h2>✏️ Kelola &amp; Edit Soal (Bebas)</h2>
+    <button class="ed-close-x" id="eCloseX" title="Tutup Modal">✕</button>
+  </div>
+  <div class="ed-body">
+    <!-- Pilihan Soal & Aksi Cepat Tambah/Hapus -->
+    <div class="ed-nav-bar">
+      <div class="ed-select-group">
+        <label for="es">Pilih Soal yang Ingin Diedit:</label>
+        <select id="es"></select>
+      </div>
+      <div class="ed-nav-actions">
+        <button type="button" class="btn-tool-sm btn-green" id="eAdd" title="Tambah Soal Baru">➕ Tambah</button>
+        <button type="button" class="btn-tool-sm btn-danger" id="eDel" title="Hapus Soal yang Dipilih">🗑️ Hapus</button>
+      </div>
+    </div>
+
+    <!-- Pager navigasi cepat antar soal -->
+    <div class="ed-pager">
+      <button type="button" id="ePrevQ" class="btn-pager">◀ Sebelumnya</button>
+      <span id="eQNumBadge" class="q-num-badge">Soal 1 dari 30</span>
+      <button type="button" id="eNextQ" class="btn-pager">Berikutnya ▶</button>
+    </div>
+
+    <!-- Form Pertanyaan Kuis -->
+    <div class="ed-field">
+      <label for="eq">Teks Pertanyaan Kuis:</label>
+      <textarea id="eq" rows="2" placeholder="Contoh: Sebutkan hewan yang bertelur!"></textarea>
+    </div>
+
+    <!-- 5 Jawaban Survei -->
+    <div class="ed-answers-heading">
+      Daftar 5 Jawaban Survei (Berdasarkan Urutan Poin):
+    </div>
+    <div id="ea" class="ed-answers-list"></div>
+
+    <div class="ed-tip">
+      💡 <b>Tips Guru:</b> Gunakan garis miring <b>/</b> untuk variasi jawaban murid yang dianggap sama.
+      <br>Contoh: <code>Sepak Bola/bola/futsal</code> atau <code>Kucing/kucing anggora/pus</code>. Tersimpan otomatis di perangkat ini.
+    </div>
+
+    <!-- Cadangan & Impor / Ekspor Teks -->
+    <details class="ed-backup">
+      <summary>📦 Cadangan / Ekspor &amp; Impor Soal (Teks)</summary>
+      <div class="ed-backup-box">
+        <p>Salin teks di bawah untuk menyimpan cadangan, atau tempelkan daftar soal baru lalu klik <b>Terapkan Impor</b>.</p>
+        <textarea id="eRaw" rows="4" placeholder="Format per baris: Pertanyaan|Jawaban1;Jawaban2;Jawaban3;Jawaban4;Jawaban5"></textarea>
+        <div class="ed-backup-btns">
+          <button type="button" id="eExportBtn" class="btn-tool-sm btn-blue">📋 Muat ke Teks</button>
+          <button type="button" id="eImportBtn" class="btn-tool-sm btn-green">📥 Terapkan Impor</button>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="dialog-btns">
+    <button id="eSave">💾 Simpan Perubahan</button>
+    <button id="eReset">🔄 Reset Bawaan</button>
+    <button id="eClose">Tutup</button>
+  </div>
 </dialog>
 
 <script>
@@ -639,39 +1023,102 @@ const DEF=[
 "Sebutkan alat yang digunakan untuk mengukur sesuatu!|Penggaris/mistar;Timbangan;Meteran;Jangka Sorong/jangka;Termometer",
 "Sebutkan benda yang biasanya ada di dalam tas sekolah!|Buku;Pensil;Penghapus;Kotak Pensil/tempat pensil;Botol Minum/botol"
 ];
+
 const $=id=>document.getElementById(id),PTS=[100,80,60,40,20],KEY='gk100';
-const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const nm=s=>s.split('/')[0].trim();
-const defData=()=>DEF.map(l=>{const[q,a]=l.split('|');return{q,a:a.split(';')}});
-function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(Array.isArray(s)&&s.length&&s.every(o=>o.q&&o.a&&o.a.length==5))return s}catch(e){}return defData()}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}}
-let D=load(),i=0,op=[],sc=[0,0],xs=[0,0],t=0,sel=-1;
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nm=s=>String(s||'').split('/')[0].trim();
+const defData=()=>DEF.map(l=>{const[q,a]=l.split('|');return{q:q.trim(),a:a.split(';').map(x=>x.trim())}});
+
+function getPtsColor(pts){
+  if(pts>=100)return'linear-gradient(135deg, #ea580c, #f97316)';
+  if(pts>=80)return'linear-gradient(135deg, #d97706, #f59e0b)';
+  if(pts>=60)return'linear-gradient(135deg, #2563eb, #3b82f6)';
+  if(pts>=40)return'linear-gradient(135deg, #059669, #10b981)';
+  return'linear-gradient(135deg, #7c3aed, #8b5cf6)';
+}
+
+function load(){
+  try{
+    const raw=localStorage.getItem('gk100_custom_q')||localStorage.getItem(KEY);
+    if(raw){
+      const s=JSON.parse(raw);
+      if(Array.isArray(s)&&s.length>0){
+        const clean=s.map(item=>{
+          if(!item||typeof item.q!=='string')return null;
+          let a=Array.isArray(item.a)?item.a.map(x=>String(x||'').trim()):[];
+          while(a.length<5)a.push('Jawaban '+(a.length+1));
+          return{q:item.q.trim(),a:a.slice(0,5)};
+        }).filter(Boolean);
+        if(clean.length>0)return clean;
+      }
+    }
+  }catch(e){
+    console.error('Error loading questions:', e);
+  }
+  return defData();
+}
+
+function save(){
+  try{
+    localStorage.setItem(KEY,JSON.stringify(D));
+    localStorage.setItem('gk100_custom_q',JSON.stringify(D));
+  }catch(e){
+    console.error('Error saving questions:', e);
+  }
+}
+
+let D=load(),i=0,op=[],sc=[0,0],xs=[0,0],t=0,sel=-1,editIndex=0;
 
 /* ---------- Suara (Web Audio API) ---------- */
 let ac;
 function A(){ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();return ac}
 function tone(f,t0,d,type='sine',v=.25){const c=A(),o=c.createOscillator(),g=c.createGain(),s=c.currentTime+t0;o.type=type;o.frequency.value=f;g.gain.setValueAtTime(v,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.connect(g);g.connect(c.destination);o.start(s);o.stop(s+d)}
-const S={ok:()=>[880,1175,1568].forEach((f,k)=>tone(f,k*.09,.4)),
-bad:()=>{tone(110,0,.7,'sawtooth',.3);tone(98,0,.7,'square',.15)},
-win:()=>[523,659,784,1047,784,1047,1319].forEach((f,k)=>tone(f,k*.14,.45,'triangle',.3))};
+const S={
+  ok:()=>[880,1175,1568].forEach((f,k)=>tone(f,k*.09,.4)),
+  bad:()=>{tone(110,0,.7,'sawtooth',.3);tone(98,0,.7,'square',.15)},
+  win:()=>[523,659,784,1047,784,1047,1319].forEach((f,k)=>tone(f,k*.14,.45,'triangle',.3))
+};
 
 /* ---------- Efek visual ---------- */
 let tt;
-function toast(m,c){const e=$('toast');e.textContent=m;e.style.background=c||'#4338ca';e.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('show'),2200)}
+function toast(m,c){const e=$('toast');e.textContent=m;e.style.background=c||'#4338ca';e.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('show'),2400)}
 function flash(c){const e=$('fl');e.className='';void e.offsetWidth;e.className=c}
 function bigX(){const e=$('bigx');e.classList.remove('show');void e.offsetWidth;e.classList.add('show')}
 function inpState(c){const e=$('inp');e.className='';void e.offsetWidth;e.className=c;setTimeout(()=>e.className='',900)}
 function floatPts(p){const e=document.createElement('div');e.className='pts';e.textContent='+'+p+' POIN!';$('t'+t).appendChild(e);setTimeout(()=>e.remove(),1500)}
 
-/* ---------- Tampilan ---------- */
+/* ---------- Tampilan Utama ---------- */
 function renderQ(){
+  if(!D||D.length===0){D=defData()}
+  if(i<0)i=0;
+  if(i>=D.length)i=D.length-1;
+
   const d=D[i];op=[0,0,0,0,0];sel=-1;xs=[0,0];
   $('ind').textContent='SOAL '+(i+1)+' DARI '+D.length;
   $('q').textContent=d.q;
-  $('cards').innerHTML=d.a.map((s,k)=>`<div class="card" data-k="${k}"><div class="in"><div class="f front"><div class="num-badge">${k+1}</div><span class="ans-placeholder">JAWABAN SURVEI</span><em class="pts-badge">${PTS[k]}</em></div><div class="f back"><div class="num-badge">${k+1}</div><span class="ans-text">${esc(nm(s)).toUpperCase()}</span><em class="pts-badge">${PTS[k]}</em></div></div></div>`).join('');
-  $('bNext').textContent=i==D.length-1?'🏆 Selesai':'Soal Berikutnya';
+  $('cards').innerHTML=d.a.map((s,k)=>`
+    <div class="card" data-k="${k}">
+      <div class="in">
+        <div class="f front">
+          <div class="num-badge">${k+1}</div>
+          <span class="ans-placeholder">JAWABAN SURVEI</span>
+          <em class="pts-badge">${PTS[k]}</em>
+        </div>
+        <div class="f back">
+          <div class="num-badge">${k+1}</div>
+          <span class="ans-text">${esc(nm(s)).toUpperCase()}</span>
+          <em class="pts-badge">${PTS[k]}</em>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  $('bPrev').disabled=(i===0);
+  $('bPrev').style.opacity=(i===0)?'0.5':'1';
+  $('bNext').textContent=i===D.length-1?'🏆 Selesai':'Soal Berikutnya';
   upd();
 }
+
 function upd(){
   [0,1].forEach(n=>{
     $('s'+n).textContent=sc[n];
@@ -681,19 +1128,28 @@ function upd(){
   });
   const ht=$('helpText');
   if(ht){
-    ht.textContent=`${tn(t)} memulai permainan. Masukkan jawaban siswa untuk mengecek.`;
+    ht.textContent=`${tn(t)} giliran bermain. Masukkan jawaban siswa untuk mengecek.`;
   }
 }
+
 function openCard(k,rev){
-  const c=$('cards').children[k];op[k]=rev?2:1;
-  c.classList.add('open');c.classList.remove('sel');if(rev)c.classList.add('rev');if(sel==k)sel=-1;
+  const c=$('cards').children[k];
+  if(!c)return;
+  op[k]=rev?2:1;
+  c.classList.add('open');
+  c.classList.remove('sel');
+  if(rev)c.classList.add('rev');
+  if(sel==k)sel=-1;
 }
 
-/* ---------- Pencocokan (fuzzy) ---------- */
-const norm=s=>s.toLowerCase().replace(/[^a-z0-9]/g,'');
-function lev(a,b){const m=[];for(let x=0;x<=a.length;x++)m[x]=[x];for(let y=1;y<=b.length;y++)m[0][y]=y;
+/* ---------- Pencocokan Jawaban (Fuzzy) ---------- */
+const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+function lev(a,b){
+  const m=[];for(let x=0;x<=a.length;x++)m[x]=[x];for(let y=1;y<=b.length;y++)m[0][y]=y;
   for(let x=1;x<=a.length;x++)for(let y=1;y<=b.length;y++)m[x][y]=Math.min(m[x-1][y]+1,m[x][y-1]+1,m[x-1][y-1]+(a[x-1]==b[y-1]?0:1));
-  return m[a.length][b.length]}
+  return m[a.length][b.length];
+}
+
 function find(v){
   v=norm(v);if(!v)return -1;let best=-1,bd=9;
   D[i].a.forEach((s,k)=>s.split('/').forEach(w=>{
@@ -704,16 +1160,16 @@ function find(v){
   return best;
 }
 
-/* ---------- Aksi ---------- */
+/* ---------- Aksi Permainan ---------- */
 const tn=n=>$('n'+n).textContent.trim()||('TIM '+(n+1));
 function award(k){
   openCard(k);sc[t]+=PTS[k];upd();floatPts(PTS[k]);
-  S.ok();flash('g');inpState('ok');toast('✅ Benar! '+nm(D[i].a[k])+' (+'+PTS[k]+')','#16a34a');
+  S.ok();flash('g');inpState('ok');toast('✅ Benar! '+nm(D[i].a[k])+' (+'+PTS[k]+' Poin)','#16a34a');
 }
 function wrong(){
   if(xs[t]<3)xs[t]++;upd();
   bigX();S.bad();flash('r');inpState('bad');
-  toast(xs[t]>=3?'⛔ Kesempatan '+tn(t)+' habis! Oper ke tim lain.':'❌ Salah! '+tn(t)+' kena '+xs[t]+' silang','#dc2626');
+  toast(xs[t]>=3?'⛔ Kesempatan '+tn(t)+' habis! Oper ke tim lain.':'❌ Salah! '+tn(t)+' mendapat '+xs[t]+' tanda silang','#dc2626');
 }
 function check(){
   A();const v=$('inp').value.trim();
@@ -750,7 +1206,7 @@ function fire(){
 }
 function resetGame(){sc=[0,0];t=0;i=0;$('win').classList.remove('show');renderQ()}
 
-/* ---------- Event ---------- */
+/* ---------- Event Listeners Utama ---------- */
 $('cards').addEventListener('click',e=>{
   const c=e.target.closest('.card');if(!c)return;const k=+c.dataset.k;if(op[k])return;
   document.querySelectorAll('.card.sel').forEach(x=>x.classList.remove('sel'));
@@ -761,36 +1217,206 @@ $('inp').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();c
 $('bYes').onclick=()=>{A();if(sel<0)return toast('Ketuk dulu kotak jawaban yang mau dibuka','#d97706');award(sel)};
 $('bNo').onclick=()=>{A();const target=sel;wrong();if(target>=0){openCard(target,true)}};
 $('bSw').onclick=()=>{t=1-t;upd();toast('Giliran '+tn(t),'#4338ca')};
-$('bRx').onclick=()=>{xs=[0,0];upd()};
+$('bRx').onclick=()=>{xs=[0,0];upd();toast('Tanda silang berhasil direset','#0284c7')};
 $('bAll').onclick=()=>{op.forEach((o,k)=>{if(!o)openCard(k,true)})};
 $('bPrev').onclick=()=>{if(i>0){i--;renderQ()}};
 $('bNext').onclick=next;
 $('bSnd').onclick=()=>{S.ok();setTimeout(S.bad,700)};
-$('bRst').onclick=()=>{if(confirm('Ulang game dari awal? Skor kembali 0.'))resetGame()};
+$('bRst').onclick=()=>{if(confirm('Ulang game dari awal? Skor akan kembali 0.'))resetGame()};
 $('wAgain').onclick=resetGame;
 $('wClose').onclick=()=>$('win').classList.remove('show');
 
-/* ---------- Editor soal ---------- */
-function fillEd(){
-  const d=D[+$('es').value];$('eq').value=d.q;
-  $('ea').innerHTML=d.a.map((s,k)=>`<label for="ea${k}">Jawaban ${k+1} (${PTS[k]} poin)</label><input id="ea${k}" value="${esc(s)}">`).join('');
+/* ---------- Editor Soal Lengkap & Fleksibel (Bebas) ---------- */
+function populateEdSelect(){
+  const s=$('es');
+  s.innerHTML=D.map((d,k)=>`<option value="${k}">${k+1}. ${esc(d.q.slice(0,50))}${d.q.length>50?'...':''}</option>`).join('');
+  if(editIndex<0)editIndex=0;
+  if(editIndex>=D.length)editIndex=D.length-1;
+  s.value=editIndex;
+  updateEdPager();
 }
-$('bEdit').onclick=()=>{
-  $('es').innerHTML=D.map((d,k)=>`<option value="${k}">${k+1}. ${esc(d.q)}</option>`).join('');
-  $('es').value=i;fillEd();$('ed').showModal();
-};
-$('es').onchange=fillEd;
-$('eSave').onclick=()=>{
-  const k=+$('es').value,q=$('eq').value.trim(),a=[0,1,2,3,4].map(n=>$('ea'+n).value.trim());
-  if(!q||a.some(x=>!x))return toast('Pertanyaan dan kelima jawaban harus diisi','#dc2626');
-  D[k]={q,a};save();
-  $('es').options[k].textContent=(k+1)+'. '+q;
-  if(k==i){renderQ()}
-  toast('Tersimpan ✔','#16a34a');
-};
-$('eClose').onclick=()=>$('ed').close();
-$('eReset').onclick=()=>{if(confirm('Kembalikan semua soal & jawaban ke bawaan?')){D=defData();try{localStorage.removeItem(KEY)}catch(e){}$('ed').close();renderQ()}};
 
+function updateEdPager(){
+  $('eQNumBadge').textContent=`Soal ${editIndex+1} dari ${D.length}`;
+  $('ePrevQ').disabled=(editIndex===0);
+  $('eNextQ').disabled=(editIndex===D.length-1);
+  $('eDel').disabled=(D.length<=1);
+}
+
+function fillEd(){
+  if(editIndex<0||editIndex>=D.length)editIndex=0;
+  const d=D[editIndex];
+  $('eq').value=d.q;
+  $('ea').innerHTML=d.a.map((s,k)=>`
+    <div class="ed-ans-row">
+      <div class="ed-ans-pts" style="background:${getPtsColor(PTS[k])}">${PTS[k]} POIN</div>
+      <div class="ed-ans-input-wrap">
+        <label for="ea${k}">Jawaban ${k+1} (Terpopuler ke-${k+1})</label>
+        <input id="ea${k}" value="${esc(s)}" placeholder="Ketik jawaban (gunakan / untuk alias kata)">
+      </div>
+    </div>
+  `).join('');
+  $('es').value=editIndex;
+  updateEdPager();
+}
+
+$('bEdit').onclick=()=>{
+  editIndex=i;
+  populateEdSelect();
+  fillEd();
+  $('ed').showModal();
+};
+
+$('es').onchange=()=>{
+  editIndex=+$('es').value;
+  fillEd();
+};
+
+$('ePrevQ').onclick=()=>{
+  if(editIndex>0){
+    editIndex--;
+    fillEd();
+  }
+};
+
+$('eNextQ').onclick=()=>{
+  if(editIndex<D.length-1){
+    editIndex++;
+    fillEd();
+  }
+};
+
+/* Tambah Soal Baru Tanpa Batas */
+$('eAdd').onclick=()=>{
+  const newNum=D.length+1;
+  const newQ={
+    q:`Sebutkan pertanyaan baru ke-${newNum}!`,
+    a:['Jawaban 1','Jawaban 2','Jawaban 3','Jawaban 4','Jawaban 5']
+  };
+  D.push(newQ);
+  save();
+  editIndex=D.length-1;
+  populateEdSelect();
+  fillEd();
+  $('eq').focus();
+  $('eq').select();
+  toast(`➕ Soal baru #${newNum} berhasil ditambahkan! Silakan ubah isinya.`,'#10b981');
+};
+
+/* Hapus Soal */
+$('eDel').onclick=()=>{
+  if(D.length<=1){
+    return toast('⚠️ Minimal harus ada 1 soal dalam kuis!','#dc2626');
+  }
+  const currQ=D[editIndex].q;
+  if(!confirm(`Yakin ingin menghapus soal #${editIndex+1}?\n"${currQ}"`))return;
+
+  D.splice(editIndex,1);
+  save();
+  if(editIndex>=D.length)editIndex=D.length-1;
+  if(i>=D.length)i=D.length-1;
+
+  populateEdSelect();
+  fillEd();
+  renderQ();
+  toast('🗑️ Soal berhasil dihapus!','#dc2626');
+};
+
+/* Simpan Soal */
+$('eSave').onclick=()=>{
+  const q=$('eq').value.trim();
+  const a=[0,1,2,3,4].map(n=>($('ea'+n)?$('ea'+n).value.trim():''));
+
+  if(!q){
+    $('eq').focus();
+    return toast('⚠️ Pertanyaan tidak boleh kosong!','#dc2626');
+  }
+  for(let k=0;k<5;k++){
+    if(!a[k]){
+      const el=$('ea'+k);if(el)el.focus();
+      return toast(`⚠️ Jawaban ke-${k+1} harus diisi!`,'#dc2626');
+    }
+  }
+
+  D[editIndex]={q,a};
+  save();
+  populateEdSelect();
+  if(editIndex===i){
+    renderQ();
+  }
+  toast(`✅ Soal #${editIndex+1} berhasil disimpan!`,'#16a34a');
+};
+
+/* Cadangan Ekspor / Impor */
+$('eExportBtn').onclick=()=>{
+  const raw=D.map(item=>item.q+'|'+item.a.join(';')).join('\n');
+  $('eRaw').value=raw;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(raw).then(()=>{
+      toast('📋 Semua soal disalin ke clipboard!','#0284c7');
+    }).catch(()=>{
+      toast('📋 Teks soal siap disalin dari kotak di bawah!','#0284c7');
+    });
+  }else{
+    toast('📋 Teks soal dimuat ke kotak di bawah!','#0284c7');
+  }
+};
+
+$('eImportBtn').onclick=()=>{
+  const txt=$('eRaw').value.trim();
+  if(!txt)return toast('⚠️ Kotak teks impor masih kosong!','#dc2626');
+
+  const lines=txt.split('\n').map(l=>l.trim()).filter(Boolean);
+  const parsed=[];
+  for(let line of lines){
+    const parts=line.split('|');
+    if(parts.length>=2){
+      const q=parts[0].trim();
+      const ansList=parts[1].split(';').map(x=>x.trim()).filter(Boolean);
+      if(q&&ansList.length>=1){
+        while(ansList.length<5)ansList.push('Jawaban '+(ansList.length+1));
+        parsed.push({q,a:ansList.slice(0,5)});
+      }
+    }
+  }
+
+  if(parsed.length===0){
+    return toast('⚠️ Format tidak valid! Contoh: Pertanyaan|Jwb1;Jwb2;Jwb3;Jwb4;Jwb5','#dc2626');
+  }
+
+  if(!confirm(`Terapkan impor ${parsed.length} soal? Soal lama akan digantikan dengan daftar ini.`))return;
+
+  D=parsed;
+  save();
+  i=0;
+  editIndex=0;
+  populateEdSelect();
+  fillEd();
+  renderQ();
+  toast(`📥 Berhasil mengimpor ${parsed.length} soal!`,'#16a34a');
+};
+
+/* Reset ke Soal Default */
+$('eReset').onclick=()=>{
+  if(confirm('Kembalikan semua soal & jawaban ke bawaan default Golden Kids (30 soal)?')){
+    D=defData();
+    try{
+      localStorage.removeItem(KEY);
+      localStorage.removeItem('gk100_custom_q');
+    }catch(e){}
+    i=0;
+    editIndex=0;
+    populateEdSelect();
+    fillEd();
+    renderQ();
+    toast('🔄 Soal dikembalikan ke default Golden Kids!','#4338ca');
+  }
+};
+
+$('eClose').onclick=()=>$('ed').close();
+$('eCloseX').onclick=()=>$('ed').close();
+
+/* Inisialisasi awal */
 renderQ();
 </script>
 </body>
