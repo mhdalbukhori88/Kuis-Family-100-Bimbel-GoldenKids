@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kuis Family 100 - Bimbel Golden Kids</title>
+<link rel="icon" type="image/png" href="logo.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
@@ -13,7 +14,8 @@
 body{font-family:'Baloo 2','Nunito',system-ui,sans-serif;background:radial-gradient(circle at 50% -10%,#4b2fb3,#171046 60%) fixed;color:#fff;min-height:100vh;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 .wrap{max-width:1200px;margin:auto;padding:10px}
 header{display:flex;align-items:center;gap:12px;padding:6px 4px 12px;flex-wrap:wrap}
-#logo,.logo{width:56px;height:56px;border-radius:50%;object-fit:cover;background:#fff;display:grid;place-items:center;font-size:32px;flex:none}
+#logo{height:54px;width:auto;max-width:115px;object-fit:contain;background:transparent;filter:drop-shadow(0 3px 6px rgba(0,0,0,.4));flex:none}
+.logo{width:54px;height:54px;border-radius:50%;background:#ffffff22;display:grid;place-items:center;font-size:30px;flex:none}
 h1{font-size:clamp(1.4rem,4.5vw,2.4rem);line-height:1;color:var(--gold);text-shadow:0 3px 0 #b45309}
 header p{font-size:clamp(.95rem,2.4vw,1.3rem);font-weight:700}
 #ind{margin-left:auto;background:#ffffff1f;border:2px solid #ffffff44;border-radius:99px;padding:4px 16px;font-weight:800;font-size:1rem}
@@ -75,7 +77,8 @@ dialog small{opacity:.8;display:block;margin-top:6px}
 html,body{height:100vh;max-height:100vh;overflow:hidden}
 .wrap{height:100vh;max-height:100vh;max-width:1300px;margin:auto;padding:8px 16px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box}
 header{padding:2px 4px 6px;gap:12px;flex:none}
-#logo,.logo{width:44px;height:44px;font-size:26px}
+#logo{height:42px;width:auto;max-width:95px;object-fit:contain;filter:drop-shadow(0 2px 5px rgba(0,0,0,.4))}
+.logo{width:42px;height:42px;font-size:24px}
 h1{font-size:clamp(1.3rem,2.3vh,1.75rem)}
 header p{font-size:0.95rem}
 #ind{padding:4px 14px;font-size:0.95rem}
@@ -115,7 +118,7 @@ html,body{height:auto;overflow-y:auto}
 <body>
 <div class="wrap">
 <header>
-  <img id="logo" src="logo.png" alt="Logo Golden Kids" onerror="this.outerHTML='<span class=logo>🌟</span>'">
+  <img id="logo" src="logo.png" alt="Logo Family 100" onerror="this.outerHTML='<span class=logo>🌟</span>'">
   <div><h1>Kuis Family 100</h1><p>Bimbel Golden Kids</p></div>
   <div id="ind"></div>
 </header>
