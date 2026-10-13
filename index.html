@@ -241,12 +241,14 @@ main{
 }
 .q{
   font-family:'Merriweather','Georgia',serif;
-  font-weight:700;
-  font-size:clamp(1.15rem, 2.2vh, 1.6rem);
+  font-weight:900;
+  font-size:clamp(1.35rem, 2.7vh, 1.95rem);
   color:#ffffff;
   text-align:center;
-  margin-bottom:8px;
-  line-height:1.2;
+  margin-bottom:10px;
+  line-height:1.25;
+  letter-spacing:0.3px;
+  text-shadow:0 2px 6px rgba(0,0,0,0.5);
   flex:none;
 }
 .cards{
@@ -332,28 +334,39 @@ main{
   flex:none;
 }
 
-/* Card Back (Revealed) */
+/* Card Back (Revealed BENAR / HIJAU) */
 .back{
   transform:rotateY(180deg);
-  background:linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
-  border:2px solid #38bdf8;
-  box-shadow:0 4px 14px rgba(2,132,199,0.35);
+  background:linear-gradient(180deg, #16a34a 0%, #15803d 55%, #14532d 100%);
+  border:2.5px solid #4ade80;
+  box-shadow:0 0 20px rgba(74, 222, 128, 0.45), 0 4px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.3);
 }
 .card.rev .back{
-  background:linear-gradient(180deg, #334155 0%, #1e293b 100%);
-  border-color:#64748b;
+  background:linear-gradient(180deg, #dc2626 0%, #b91c1c 55%, #7f1d1d 100%);
+  border:2.5px solid #f87171;
+  box-shadow:0 0 20px rgba(248, 113, 113, 0.45), 0 4px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
 }
 .back .num-badge{
   width:32px;
   height:32px;
   border-radius:50%;
   background:#ffffff;
-  color:#0369a1;
+  color:#15803d;
   display:grid;
   place-items:center;
   font-size:1rem;
   font-weight:900;
   flex:none;
+  box-shadow:0 2px 4px rgba(0,0,0,0.25);
+}
+.card.rev .back .num-badge{
+  color:#b91c1c;
+}
+.card.bad .front{
+  border-color:#ef4444!important;
+  background:linear-gradient(180deg, #b91c1c 0%, #7f1d1d 100%)!important;
+  box-shadow:0 0 20px rgba(239,68,68,0.7)!important;
+  animation:shake .5s;
 }
 .back .ans-text{
   color:#ffffff;
@@ -746,7 +759,7 @@ $('cards').addEventListener('click',e=>{
 $('chk').onclick=check;
 $('inp').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();check()}});
 $('bYes').onclick=()=>{A();if(sel<0)return toast('Ketuk dulu kotak jawaban yang mau dibuka','#d97706');award(sel)};
-$('bNo').onclick=()=>{A();wrong()};
+$('bNo').onclick=()=>{A();const target=sel;wrong();if(target>=0){openCard(target,true)}};
 $('bSw').onclick=()=>{t=1-t;upd();toast('Giliran '+tn(t),'#4338ca')};
 $('bRx').onclick=()=>{xs=[0,0];upd()};
 $('bAll').onclick=()=>{op.forEach((o,k)=>{if(!o)openCard(k,true)})};
