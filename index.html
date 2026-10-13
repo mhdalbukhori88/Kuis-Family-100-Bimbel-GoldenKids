@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuis Family 100 - Bimbel Golden Kids</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+:root{--gold:#ffc93c;--g:#22c55e;--r:#ef4444}
+body{font-family:'Baloo 2','Nunito',system-ui,sans-serif;background:radial-gradient(circle at 50% -10%,#4b2fb3,#171046 60%) fixed;color:#fff;min-height:100vh;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:1200px;margin:auto;padding:10px}
+header{display:flex;align-items:center;gap:12px;padding:6px 4px 12px;flex-wrap:wrap}
+#logo,.logo{width:56px;height:56px;border-radius:50%;object-fit:cover;background:#fff;display:grid;place-items:center;font-size:32px;flex:none}
+h1{font-size:clamp(1.4rem,4.5vw,2.4rem);line-height:1;color:var(--gold);text-shadow:0 3px 0 #b45309}
+header p{font-size:clamp(.95rem,2.4vw,1.3rem);font-weight:700}
+#ind{margin-left:auto;background:#ffffff1f;border:2px solid #ffffff44;border-radius:99px;padding:4px 16px;font-weight:800;font-size:1rem}
+main{display:grid;gap:10px;grid-template-areas:"a b" "c c";grid-template-columns:1fr 1fr}
+.team{background:#ffffff14;border:3px solid #ffffff30;border-radius:20px;padding:8px 6px;text-align:center;position:relative;transition:.3s}
+#t0{grid-area:a}#t1{grid-area:b}.board{grid-area:c}
+.team.on{border-color:var(--gold);box-shadow:0 0 0 3px #ffc93c55,0 0 28px #ffc93c99;background:#ffffff26}
+.tn{font-weight:800;font-size:1.1rem;outline:0;display:block;min-height:1.4em}
+#t0 .tn{color:#8bb8ff}#t1 .tn{color:#ff9fcb}
+.sc{font-size:clamp(2.2rem,9vw,4.2rem);font-weight:800;color:var(--gold);line-height:1.1}
+.turn{font-size:.8rem;font-weight:700;height:1.2em;color:var(--gold)}
+.xs{display:flex;justify-content:center;gap:4px;font-size:1.5rem}
+.xs i{font-style:normal;opacity:.2;filter:grayscale(1);transition:.3s}.xs i.h{opacity:1;filter:none}
+.q{background:linear-gradient(#ffc93c,#ff9f1c);color:#2a1a00;border-radius:18px;padding:14px;font-size:clamp(1.2rem,3.2vw,2.1rem);font-weight:800;text-align:center;margin-bottom:10px;box-shadow:0 5px 0 #b45309;line-height:1.2}
+.cards{display:grid;gap:8px}
+.card{perspective:900px;height:62px;cursor:pointer}
+.in{position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}
+.card.open .in{transform:rotateY(180deg)}
+.f{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-weight:800;font-size:clamp(1.1rem,3vw,1.8rem)}
+.front{background:linear-gradient(#3b82f6,#1d4ed8);border:3px solid #93c5fd}
+.front b{background:#fff;color:#1d4ed8;width:2em;height:2em;border-radius:50%;display:grid;place-items:center}
+.front span{opacity:.85}
+.card.sel .front{outline:4px solid var(--gold);outline-offset:2px}
+.back{transform:rotateY(180deg);background:linear-gradient(#22c55e,#15803d);border:3px solid #bbf7d0}
+.card.rev .back{background:linear-gradient(#64748b,#334155);border-color:#cbd5e1}
+.back em{font-style:normal;background:#00000038;border-radius:10px;padding:0 12px}
+.ctl{margin-top:12px;background:#0b0830d9;border-radius:20px;padding:12px;border:2px solid #ffffff22}
+.row{display:flex;gap:8px}
+#inp{flex:1;min-width:0;font:inherit;font-size:18px;font-weight:700;padding:10px 14px;border-radius:12px;border:3px solid #ffffff44;background:#fff;color:#1b1464;outline:0}
+#inp:focus{border-color:var(--gold)}
+#inp.ok{border-color:var(--g);background:#dcfce7;animation:pulse .5s}
+#inp.bad{border-color:var(--r);background:#fee2e2;animation:shake .5s}
+button{min-height:46px;border:0;border-radius:12px;font:inherit;font-weight:700;font-size:1rem;color:#fff;background:#4338ca;cursor:pointer;padding:0 12px;box-shadow:0 3px 0 #0006}
+button:active{transform:translateY(2px);box-shadow:none}
+.go,.yes{background:#16a34a}.no{background:#dc2626}.warn{background:#d97706}
+.btns{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+#fl{position:fixed;inset:0;pointer-events:none;opacity:0;z-index:50}
+#fl.g{background:#22c55e;animation:fl .7s}#fl.r{background:#ef4444;animation:fl .7s}
+#bigx{position:fixed;inset:0;display:none;place-items:center;font-size:55vmin;pointer-events:none;z-index:60;text-shadow:0 0 40px #000a}
+#bigx.show{display:grid;animation:pop 1s forwards}
+#toast{position:fixed;left:50%;top:max(12px,env(safe-area-inset-top));transform:translate(-50%,-150%);padding:10px 20px;border-radius:14px;font-weight:800;z-index:70;transition:.35s;max-width:92vw;text-align:center;box-shadow:0 6px 20px #0008}
+#toast.show{transform:translate(-50%,0)}
+.pts{position:absolute;left:50%;top:30%;transform:translateX(-50%);background:var(--g);color:#fff;font-weight:800;font-size:1.3rem;padding:2px 14px;border-radius:99px;white-space:nowrap;pointer-events:none;animation:rise 1.5s forwards;z-index:5}
+dialog{border:0;border-radius:20px;padding:18px;width:min(94vw,540px);background:#241a6b;color:#fff;margin:auto}
+dialog::backdrop{background:#000a}
+dialog h2{color:var(--gold);margin-bottom:10px}
+dialog label{display:block;font-weight:700;margin:8px 0 3px;font-size:.95rem}
+dialog input,dialog textarea,dialog select{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radius:10px;border:2px solid #ffffff44;background:#fff;color:#1b1464}
+dialog small{opacity:.8;display:block;margin-top:6px}
+#win{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:900;padding:14px}
+#win.show{display:grid}
+.wb{background:linear-gradient(#4b2fb3,#241a6b);border:4px solid var(--gold);border-radius:24px;padding:22px;text-align:center;width:min(94vw,520px);animation:pop2 .6s}
+.wb h2{font-size:clamp(1.8rem,7vw,2.8rem);color:var(--gold)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.vs div{background:#ffffff1f;border-radius:14px;padding:10px;font-weight:700}.vs b{display:block;font-size:2.4rem;color:var(--gold);line-height:1.1}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:1000}
+@media(min-width:900px){
+main{grid-template-areas:"a c b";grid-template-columns:200px 1fr 200px;align-items:start}
+.team{padding:16px 8px;position:sticky;top:10px}.card{height:76px}.btns{grid-template-columns:repeat(4,1fr)}.sc{font-size:3.6rem}
+}
+@keyframes pop{0%{transform:scale(.2);opacity:0}25%{transform:scale(1);opacity:1}80%{opacity:1}100%{transform:scale(1.15);opacity:0}}
+@keyframes pop2{from{transform:scale(.5);opacity:0}}
+@keyframes fl{0%{opacity:.45}100%{opacity:0}}
+@keyframes rise{0%{opacity:0;top:50%}20%{opacity:1}100%{opacity:0;top:-10%}}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@keyframes pulse{50%{transform:scale(1.03)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <img id="logo" src="logo.png" alt="Logo Golden Kids" onerror="this.outerHTML='<span class=logo>🌟</span>'">
+  <div><h1>Kuis Family 100</h1><p>Bimbel Golden Kids</p></div>
+  <div id="ind"></div>
+</header>
+<main>
+  <section class="team" id="t0"><span class="tn" id="n0" contenteditable="true" spellcheck="false">TIM 1</span><div class="turn"></div><div class="sc" id="s0">0</div><div class="xs"></div></section>
+  <section class="board"><div class="q" id="q"></div><div class="cards" id="cards"></div></section>
+  <section class="team" id="t1"><span class="tn" id="n1" contenteditable="true" spellcheck="false">TIM 2</span><div class="turn"></div><div class="sc" id="s1">0</div><div class="xs"></div></section>
+</main>
+<section class="ctl">
+  <div class="row"><input id="inp" placeholder="Ketik jawaban murid…" autocomplete="off" autocapitalize="sentences" enterkeyhint="go"><button class="go" id="chk">Cek Jawaban</button></div>
+  <div class="btns">
+    <button class="yes" id="bYes">✅ Benar</button>
+    <button class="no" id="bNo">❌ Salah</button>
+    <button id="bSw">🔁 Ganti Tim</button>
+    <button id="bRx">🧹 Reset ❌</button>
+    <button id="bAll">👁️ Buka Semua</button>
+    <button id="bPrev">⬅️ Sebelumnya</button>
+    <button class="warn" id="bNext">➡️ Soal Berikutnya</button>
+    <button id="bEdit">✏️ Edit Soal</button>
+    <button id="bSnd">🔊 Tes Suara</button>
+    <button class="no" id="bRst">🔄 Reset Game</button>
+  </div>
+</section>
+</div>
+
+<div id="fl"></div><div id="bigx">❌</div><div id="toast"></div>
+<canvas id="fx"></canvas>
+
+<div id="win"><div class="wb"><div style="font-size:3rem">🏆</div><h2 id="wt"></h2><div class="vs"><div><span id="wn0"></span><b id="ws0"></b></div><div><span id="wn1"></span><b id="ws1"></b></div></div><p style="font-weight:800">Total poin: <span id="wtot"></span></p><div class="row" style="margin-top:14px"><button class="go" style="flex:1" id="wAgain">Main Lagi</button><button style="flex:1" id="wClose">Tutup</button></div></div></div>
+
+<dialog id="ed">
+  <h2>Edit Soal &amp; Jawaban</h2>
+  <label for="es">Pilih soal</label><select id="es"></select>
+  <label for="eq">Pertanyaan</label><textarea id="eq" rows="2"></textarea>
+  <div id="ea"></div>
+  <small>Isi jawaban murid. Jawaban 1 = 100 poin, 2 = 80, 3 = 60, 4 = 40, 5 = 20. Untuk kata lain yang dianggap sama, pisahkan dengan garis miring, contoh: <b>Sepak Bola/bola/futsal</b>. Tersimpan otomatis di perangkat ini.</small>
+  <div class="btns" style="grid-template-columns:repeat(3,1fr)"><button class="go" id="eSave">Simpan</button><button id="eClose">Tutup</button><button class="no" id="eReset">Reset Semua</button></div>
+</dialog>
+
+<script>
+const DEF=[
+"Sebutkan nama planet yang kamu ketahui!|Bumi;Mars;Jupiter;Saturnus;Venus",
+"Sebutkan hewan yang hidup di air!|Ikan;Paus/ikan paus;Hiu;Lumba-lumba/lumba;Katak",
+"Sebutkan hewan yang bisa terbang!|Burung;Kelelawar;Lebah;Kupu-kupu/kupu;Elang",
+"Sebutkan hewan yang bertelur!|Ayam;Bebek;Burung;Buaya;Penyu",
+"Sebutkan makanan khas Indonesia!|Rendang;Nasi Goreng/nasgor;Sate;Gado-gado;Soto",
+"Sebutkan jajanan yang sering kamu beli di sekolah!|Cilok;Bakso;Es Teh/es;Gorengan;Sosis",
+"Sebutkan nama pulau yang ada di Indonesia!|Jawa;Sumatera/sumatra;Kalimantan;Sulawesi;Papua",
+"Sebutkan nama pahlawan Indonesia!|Soekarno/sukarno/bung karno;Kartini/ra kartini;Diponegoro/pangeran diponegoro;Cut Nyak Dien/cut nyak;Pattimura",
+"Sebutkan provinsi yang kamu ketahui!|Jawa Barat;Jawa Timur;Sumatera Utara/sumut;DKI Jakarta/jakarta;Bali",
+"Sebutkan alat musik tradisional Indonesia!|Angklung;Gamelan;Sasando;Kolintang;Gendang",
+"Sebutkan olahraga yang menggunakan bola!|Sepak Bola/bola;Basket/bola basket;Voli/bola voli;Kasti;Bola Tangan/handball",
+"Sebutkan olahraga yang menggunakan raket!|Badminton/bulutangkis/bulu tangkis;Tenis;Tenis Meja/pingpong/ping pong;Squash;Padel",
+"Sebutkan alat transportasi yang kamu ketahui!|Mobil;Motor/sepeda motor;Pesawat;Kereta/kereta api;Kapal",
+"Sebutkan alat komunikasi yang kamu ketahui!|Handphone/hp/ponsel/telepon/telpon;Televisi/tv;Radio;Surat;Komputer/laptop",
+"Sebutkan benda yang menggunakan energi listrik!|Kipas Angin/kipas;Lampu;Kulkas;Televisi/tv;Setrika",
+"Sebutkan sumber energi yang kamu ketahui!|Matahari;Air;Angin;Batu Bara/batubara;Minyak Bumi/minyak",
+"Sebutkan benda yang dapat ditarik magnet!|Paku;Besi;Jarum;Baja;Peniti/klip",
+"Sebutkan bagian tubuh manusia!|Kepala;Tangan;Kaki;Mata;Hidung",
+"Sebutkan organ tubuh manusia!|Jantung;Paru-paru/paru;Hati;Otak;Ginjal",
+"Sebutkan pancaindra manusia!|Mata;Telinga;Hidung;Lidah;Kulit",
+"Sebutkan jenis-jenis cuaca!|Hujan;Cerah;Berawan/mendung;Panas;Berangin/angin",
+"Sebutkan bencana alam yang kamu ketahui!|Banjir;Gempa/gempa bumi;Tsunami;Gunung Meletus/meletus;Longsor/tanah longsor",
+"Sebutkan benda yang ada di langit!|Matahari;Bulan;Bintang;Awan;Pesawat",
+"Sebutkan sumber air yang kamu ketahui!|Sungai;Sumur;Laut;Danau;Mata Air",
+"Sebutkan cara menjaga lingkungan!|Buang Sampah/sampah;Menanam Pohon/pohon;Kerja Bakti/bersih;Hemat Air/air;Daur Ulang/recycle",
+"Sebutkan tumbuhan yang bisa dimakan!|Padi/beras;Jagung;Singkong/ubi kayu;Kangkung;Bayam",
+"Sebutkan negara yang kamu ketahui!|Indonesia;Malaysia;Jepang;Amerika/usa;Singapura",
+"Sebutkan nama benua yang kamu ketahui!|Asia;Afrika;Eropa;Amerika;Australia/oceania",
+"Sebutkan alat yang digunakan untuk mengukur sesuatu!|Penggaris/mistar;Timbangan;Meteran;Jangka Sorong/jangka;Termometer",
+"Sebutkan benda yang biasanya ada di dalam tas sekolah!|Buku;Pensil;Penghapus;Kotak Pensil/tempat pensil;Botol Minum/botol"
+];
+const $=id=>document.getElementById(id),PTS=[100,80,60,40,20],KEY='gk100';
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nm=s=>s.split('/')[0].trim();
+const defData=()=>DEF.map(l=>{const[q,a]=l.split('|');return{q,a:a.split(';')}});
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(Array.isArray(s)&&s.length&&s.every(o=>o.q&&o.a&&o.a.length==5))return s}catch(e){}return defData()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}}
+let D=load(),i=0,op=[],sc=[0,0],xs=[0,0],t=0,sel=-1;
+
+/* ---------- Suara (Web Audio API) ---------- */
+let ac;
+function A(){ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();return ac}
+function tone(f,t0,d,type='sine',v=.25){const c=A(),o=c.createOscillator(),g=c.createGain(),s=c.currentTime+t0;o.type=type;o.frequency.value=f;g.gain.setValueAtTime(v,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.connect(g);g.connect(c.destination);o.start(s);o.stop(s+d)}
+const S={ok:()=>[880,1175,1568].forEach((f,k)=>tone(f,k*.09,.4)),
+bad:()=>{tone(110,0,.7,'sawtooth',.3);tone(98,0,.7,'square',.15)},
+win:()=>[523,659,784,1047,784,1047,1319].forEach((f,k)=>tone(f,k*.14,.45,'triangle',.3))};
+
+/* ---------- Efek visual ---------- */
+let tt;
+function toast(m,c){const e=$('toast');e.textContent=m;e.style.background=c||'#4338ca';e.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('show'),2200)}
+function flash(c){const e=$('fl');e.className='';void e.offsetWidth;e.className=c}
+function bigX(){const e=$('bigx');e.classList.remove('show');void e.offsetWidth;e.classList.add('show')}
+function inpState(c){const e=$('inp');e.className='';void e.offsetWidth;e.className=c;setTimeout(()=>e.className='',900)}
+function floatPts(p){const e=document.createElement('div');e.className='pts';e.textContent='+'+p+' POIN!';$('t'+t).appendChild(e);setTimeout(()=>e.remove(),1500)}
+
+/* ---------- Tampilan ---------- */
+function renderQ(){
+  const d=D[i];op=[0,0,0,0,0];sel=-1;xs=[0,0];
+  $('ind').textContent='Soal '+(i+1)+' dari '+D.length;
+  $('q').textContent=d.q;
+  $('cards').innerHTML=d.a.map((s,k)=>`<div class="card" data-k="${k}"><div class="in"><div class="f front"><b>${k+1}</b><span>${PTS[k]}</span></div><div class="f back"><span>${esc(nm(s))}</span><em>${PTS[k]}</em></div></div></div>`).join('');
+  $('bNext').textContent=i==D.length-1?'🏆 Selesai':'➡️ Soal Berikutnya';
+  upd();
+}
+function upd(){
+  [0,1].forEach(n=>{
+    $('s'+n).textContent=sc[n];
+    const p=$('t'+n);p.classList.toggle('on',t==n);
+    p.querySelector('.turn').textContent=t==n?'⭐ Giliran main':'';
+    p.querySelector('.xs').innerHTML=[0,1,2].map(k=>`<i class="${k<xs[n]?'h':''}">❌</i>`).join('');
+  });
+}
+function openCard(k,rev){
+  const c=$('cards').children[k];op[k]=rev?2:1;
+  c.classList.add('open');c.classList.remove('sel');if(rev)c.classList.add('rev');if(sel==k)sel=-1;
+}
+
+/* ---------- Pencocokan (fuzzy) ---------- */
+const norm=s=>s.toLowerCase().replace(/[^a-z0-9]/g,'');
+function lev(a,b){const m=[];for(let x=0;x<=a.length;x++)m[x]=[x];for(let y=1;y<=b.length;y++)m[0][y]=y;
+  for(let x=1;x<=a.length;x++)for(let y=1;y<=b.length;y++)m[x][y]=Math.min(m[x-1][y]+1,m[x][y-1]+1,m[x-1][y-1]+(a[x-1]==b[y-1]?0:1));
+  return m[a.length][b.length]}
+function find(v){
+  v=norm(v);if(!v)return -1;let best=-1,bd=9;
+  D[i].a.forEach((s,k)=>s.split('/').forEach(w=>{
+    w=norm(w);if(!w)return;
+    const d=w===v?0:lev(w,v),lim=w.length>=7?2:w.length>=4?1:0;
+    if(d<=lim&&d<bd){bd=d;best=k}
+  }));
+  return best;
+}
+
+/* ---------- Aksi ---------- */
+const tn=n=>$('n'+n).textContent.trim()||('TIM '+(n+1));
+function award(k){
+  openCard(k);sc[t]+=PTS[k];upd();floatPts(PTS[k]);
+  S.ok();flash('g');inpState('ok');toast('✅ Benar! '+nm(D[i].a[k])+' (+'+PTS[k]+')','#16a34a');
+}
+function wrong(){
+  if(xs[t]<3)xs[t]++;upd();
+  bigX();S.bad();flash('r');inpState('bad');
+  toast(xs[t]>=3?'⛔ Kesempatan '+tn(t)+' habis! Oper ke tim lain.':'❌ Salah! '+tn(t)+' kena '+xs[t]+' silang','#dc2626');
+}
+function check(){
+  A();const v=$('inp').value.trim();
+  if(!v){toast('Ketik jawaban dulu','#d97706');return}
+  const k=find(v);
+  if(k<0)wrong();
+  else if(op[k]){toast('Jawaban "'+nm(D[i].a[k])+'" sudah terbuka','#d97706');inpState('')}
+  else award(k);
+  $('inp').value='';$('inp').focus();
+}
+function next(){
+  if(i>=D.length-1)return showWin();
+  i++;renderQ();
+}
+function showWin(){
+  $('wn0').textContent=tn(0);$('wn1').textContent=tn(1);$('ws0').textContent=sc[0];$('ws1').textContent=sc[1];
+  $('wtot').textContent=sc[0]+sc[1];
+  $('wt').textContent=sc[0]==sc[1]?'HASIL SERI!':(sc[0]>sc[1]?tn(0):tn(1))+' MENANG!';
+  $('win').classList.add('show');S.win();fire();
+}
+function fire(){
+  const c=$('fx'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+  let P=[];const end=Date.now()+5000;
+  function burst(){const cx=Math.random()*c.width,cy=Math.random()*c.height*.6,h=Math.random()*360;
+    for(let k=0;k<60;k++){const a=Math.PI*2*k/60,s=2+Math.random()*4;P.push({x:cx,y:cy,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:70,h})}}
+  burst();burst();burst();
+  (function loop(){
+    x.clearRect(0,0,c.width,c.height);
+    if(Date.now()<end&&Math.random()<.08)burst();
+    P=P.filter(p=>p.l>0);
+    P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.05;p.l--;x.fillStyle='hsla('+p.h+',100%,60%,'+p.l/70+')';x.fillRect(p.x,p.y,4,4)});
+    if(P.length||Date.now()<end)requestAnimationFrame(loop);
+  })();
+}
+function resetGame(){sc=[0,0];t=0;i=0;$('win').classList.remove('show');renderQ()}
+
+/* ---------- Event ---------- */
+$('cards').addEventListener('click',e=>{
+  const c=e.target.closest('.card');if(!c)return;const k=+c.dataset.k;if(op[k])return;
+  document.querySelectorAll('.card.sel').forEach(x=>x.classList.remove('sel'));
+  sel=sel==k?-1:k;if(sel>=0)c.classList.add('sel');
+});
+$('chk').onclick=check;
+$('inp').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();check()}});
+$('bYes').onclick=()=>{A();if(sel<0)return toast('Ketuk dulu kotak jawaban yang mau dibuka','#d97706');award(sel)};
+$('bNo').onclick=()=>{A();wrong()};
+$('bSw').onclick=()=>{t=1-t;upd();toast('Giliran '+tn(t),'#4338ca')};
+$('bRx').onclick=()=>{xs=[0,0];upd()};
+$('bAll').onclick=()=>{op.forEach((o,k)=>{if(!o)openCard(k,true)})};
+$('bPrev').onclick=()=>{if(i>0){i--;renderQ()}};
+$('bNext').onclick=next;
+$('bSnd').onclick=()=>{S.ok();setTimeout(S.bad,700)};
+$('bRst').onclick=()=>{if(confirm('Ulang game dari awal? Skor kembali 0.'))resetGame()};
+$('wAgain').onclick=resetGame;
+$('wClose').onclick=()=>$('win').classList.remove('show');
+
+/* ---------- Editor soal ---------- */
+function fillEd(){
+  const d=D[+$('es').value];$('eq').value=d.q;
+  $('ea').innerHTML=d.a.map((s,k)=>`<label for="ea${k}">Jawaban ${k+1} (${PTS[k]} poin)</label><input id="ea${k}" value="${esc(s)}">`).join('');
+}
+$('bEdit').onclick=()=>{
+  $('es').innerHTML=D.map((d,k)=>`<option value="${k}">${k+1}. ${esc(d.q)}</option>`).join('');
+  $('es').value=i;fillEd();$('ed').showModal();
+};
+$('es').onchange=fillEd;
+$('eSave').onclick=()=>{
+  const k=+$('es').value,q=$('eq').value.trim(),a=[0,1,2,3,4].map(n=>$('ea'+n).value.trim());
+  if(!q||a.some(x=>!x))return toast('Pertanyaan dan kelima jawaban harus diisi','#dc2626');
+  D[k]={q,a};save();
+  $('es').options[k].textContent=(k+1)+'. '+q;
+  if(k==i){renderQ()}
+  toast('Tersimpan ✔','#16a34a');
+};
+$('eClose').onclick=()=>$('ed').close();
+$('eReset').onclick=()=>{if(confirm('Kembalikan semua soal & jawaban ke bawaan?')){D=defData();try{localStorage.removeItem(KEY)}catch(e){}$('ed').close();renderQ()}};
+
+renderQ();
+</script>
+</body>
+</html>
