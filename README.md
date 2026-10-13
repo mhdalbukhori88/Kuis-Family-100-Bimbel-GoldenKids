@@ -11,13 +11,15 @@ Game web kuis interaktif berbasis survei bertema Family 100 yang dirancang khusu
    - Papan skor Tim 1 dan Tim 2 diperbesar dan dipertegas dengan aksen emas serta indikator giliran aktif.
    - Panel jawaban proporsional dengan kartu jawaban 3D flip yang responsif.
 
-2. **Kelola & Edit Soal Bebas Tanpa Batas (Untuk Guru)**:
-   - **Bebas Edit**: Guru dapat mengubah pertanyaan dan kelima jawaban survei beserta variasinya (menggunakan tanda garis miring `/`, contoh: `Sepak Bola/bola/futsal`).
-   - **➕ Tambah Soal Baru**: Guru dapat menambahkan soal baru tanpa batas sesuai materi pembelajaran.
-   - **🗑️ Hapus Soal**: Guru dapat menghapus soal yang tidak relevan dengan aman.
+2. **Kelola Bank Soal Praktis & Ramah Guru (2 Tampilan)**:
+   - **Tampilan Daftar Soal (List View)**: Guru dapat melihat seluruh soal dalam bentuk kartu rapi, dilengkapi tombol `[✏️ Edit]` dan `[🗑️ Hapus]` untuk tiap soal.
+   - **➕ Tambah Soal Baru**: Membuka form bersih untuk menambahkan soal materi pelajaran.
+   - **🗑️ Kosongkan / Buat Kuis Baru**: Mengosongkan bank soal dalam 1 klik agar guru bisa menyusun kuis dari nomor 1 tanpa tercampur soal bawaan.
+   - **🔄 Muat 30 Soal Bawaan**: Mengembalikan ke 30 soal kuis pengetahuan umum SD bawaan Golden Kids kapan pun dibutuhkan.
+   - **Form Input Bersih**: Form terpisah yang rapi dan mudah diisi (pertanyaan + 5 jawaban berpoin).
+   - **Variasi Jawaban Guru**: Mendukung tanda garis miring `/` untuk sinonim kata (contoh: `Paus/ikan paus` atau `Sepak Bola/bola/futsal`).
    - **📦 Cadangan, Ekspor & Impor**: Soal dapat disalin (ekspor) atau diimpor sekaligus dalam format teks sederhana.
-   - **🔄 Reset Default**: Dapat dikembalikan ke 30 soal bawaan Golden Kids kapan saja.
-   - **Penyimpanan Otomatis**: Tersimpan di `localStorage` peramban.
+   - **Penyimpanan Otomatis**: Tersimpan otomatis di peramban (`localStorage`).
 
 3. **Interaktivitas Game Family 100**:
    - Papan skor untuk 2 tim (nama tim dapat diklik dan diedit langsung).

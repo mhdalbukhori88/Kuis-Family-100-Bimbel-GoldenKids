@@ -508,16 +508,18 @@ button:active{transform:translateY(1px)}
 #wClose{background:#334155!important;color:#fff!important;height:44px;border-radius:10px;font-weight:800;font-size:1rem;border:1px solid #475569}
 #fx{position:fixed;inset:0;pointer-events:none;z-index:1000}
 
-/* Dialog Editor Soal Lengkap & Bebas */
+/* ========================================================
+   MODAL PENGELOLA SOAL BARU: DAFTAR SOAL & FORM INPUT BERSIH
+   ======================================================== */
 dialog#ed{
   border:2.5px solid var(--gold);
   border-radius:22px;
   padding:0;
-  width:min(95vw, 680px);
-  max-height:88vh;
+  width:min(96vw, 760px);
+  max-height:90vh;
   background:#081b42;
   color:#fff;
-  box-shadow:0 16px 50px rgba(0,0,0,0.85), 0 0 30px rgba(255,190,26,0.25);
+  box-shadow:0 18px 55px rgba(0,0,0,0.9), 0 0 35px rgba(255,190,26,0.25);
   margin:auto;
   overflow:hidden;
   display:none;
@@ -526,7 +528,7 @@ dialog#ed{
 dialog#ed[open]{
   display:flex;
 }
-dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
+dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
 
 .ed-header{
   display:flex;
@@ -535,12 +537,13 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   padding:14px 20px;
   background:#051433;
   border-bottom:1.5px solid #1a3870;
+  flex:none;
 }
 .ed-header h2{
   color:var(--gold);
   margin:0;
   font-family:'Merriweather',serif;
-  font-size:1.3rem;
+  font-size:1.28rem;
   display:flex;
   align-items:center;
   gap:8px;
@@ -564,7 +567,8 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   color:#fff;
 }
 
-.ed-body{
+/* Container Views */
+.ed-view-panel{
   padding:16px 20px;
   overflow-y:auto;
   flex:1;
@@ -573,152 +577,227 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   gap:12px;
 }
 
-/* Nav Toolbar in Editor */
-.ed-nav-bar{
+/* Toolbar di View Daftar Soal */
+.ed-toolbar{
   display:flex;
   gap:10px;
-  align-items:flex-end;
+  flex-wrap:wrap;
+  align-items:center;
+  background:#051333;
+  border:1.5px solid #19386e;
+  border-radius:14px;
+  padding:10px 14px;
 }
-.ed-select-group{
+.btn-tool-lg{
+  padding:9px 16px;
+  font-size:0.92rem;
+  font-weight:900;
+  border-radius:10px;
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  cursor:pointer;
+}
+.btn-green{background:#10b981;box-shadow:0 3px 0 #059669}
+.btn-danger{background:#dc2626;box-shadow:0 3px 0 #991b1b}
+.btn-navy{background:#18366e;border:1px solid #38bdf8;box-shadow:0 3px 0 #0c2045}
+
+.ed-list-summary{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:2px 4px;
+}
+.ed-total-badge{
+  font-weight:800;
+  color:#93c5fd;
+  font-size:0.88rem;
+}
+.ed-total-badge b{
+  color:var(--gold);
+  font-size:1.05rem;
+}
+
+/* List Items Soal */
+.ed-items-container{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  min-height:120px;
+}
+.ed-item-card{
+  background:#071b40;
+  border:1.5px solid #1c3e7a;
+  border-radius:14px;
+  padding:12px 14px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+  transition:border-color .2s, transform .15s;
+}
+.ed-item-card:hover{
+  border-color:#38bdf8;
+  background:#09214e;
+}
+.ed-item-main{
   flex:1;
   min-width:0;
 }
-.ed-select-group label{
-  display:block;
-  font-size:0.75rem;
-  font-weight:800;
-  color:#93c5fd;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-bottom:4px;
+.ed-item-q{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  margin-bottom:6px;
 }
-.ed-select-group select{
-  width:100%;
-  font:inherit;
-  font-size:14px;
-  font-weight:700;
-  padding:8px 12px;
-  border-radius:8px;
-  border:1.5px solid #254b8c;
-  background:#ffffff;
-  color:#0f172a;
-  outline:none;
+.ed-item-num{
+  background:var(--gold);
+  color:#06183d;
+  font-size:0.78rem;
+  font-weight:900;
+  padding:2px 8px;
+  border-radius:99px;
+  flex:none;
 }
-.ed-nav-actions{
+.ed-item-q-text{
+  font-weight:900;
+  font-size:1.02rem;
+  color:#ffffff;
+  line-height:1.3;
+}
+.ed-item-badges{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+.ed-ans-chip{
+  font-size:0.74rem;
+  background:#051330;
+  border:1px solid #1e3d78;
+  border-radius:6px;
+  padding:2px 8px;
+  color:#cbd5e1;
+  max-width:180px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.ed-ans-chip b{
+  color:#f59e0b;
+}
+.ed-item-actions{
   display:flex;
   gap:6px;
   flex:none;
 }
-.btn-tool-sm{
-  height:38px;
-  padding:0 12px;
+.btn-action-edit{
+  background:#2563eb;
+  color:#fff;
+  padding:7px 12px;
+  border-radius:8px;
   font-size:0.85rem;
   font-weight:800;
-  border-radius:8px;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  gap:5px;
-  cursor:pointer;
 }
-.btn-green{background:#10b981;box-shadow:0 2px 0 #059669}
-.btn-danger{background:#dc2626;box-shadow:0 2px 0 #991b1b}
-.btn-blue{background:#2563eb;box-shadow:0 2px 0 #1d4ed8}
+.btn-action-del{
+  background:#dc2626;
+  color:#fff;
+  padding:7px 12px;
+  border-radius:8px;
+  font-size:0.85rem;
+  font-weight:800;
+}
 
-/* Pager in modal */
-.ed-pager{
+/* Empty State */
+.ed-empty-state{
+  text-align:center;
+  padding:40px 20px;
+  background:#051330;
+  border:2px dashed #1e3d78;
+  border-radius:16px;
+  margin:10px 0;
+}
+
+/* Form Tambah / Edit Bersih */
+.ed-form-top{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:#051333;
-  padding:6px 12px;
-  border-radius:10px;
-  border:1px solid #163366;
+  border-bottom:1.5px solid #1a3870;
+  padding-bottom:10px;
 }
-.btn-pager{
+.ed-form-title{
+  color:var(--gold);
+  margin:0;
+  font-size:1.15rem;
+  font-weight:900;
+}
+.btn-back{
   background:#1e3a70;
   color:#cbd5e1;
-  font-size:0.8rem;
+  padding:6px 14px;
+  border-radius:8px;
+  font-size:0.82rem;
   font-weight:800;
-  padding:5px 12px;
-  border-radius:6px;
 }
-.btn-pager:hover:not(:disabled){
+.btn-back:hover{
   background:#2563eb;
   color:#fff;
 }
-.btn-pager:disabled{
-  opacity:0.4;
-  cursor:not-allowed;
-}
-.q-num-badge{
-  font-size:0.85rem;
-  font-weight:800;
-  color:var(--gold);
-  letter-spacing:0.5px;
-}
 
-/* Question textarea */
-.ed-field label{
-  display:block;
-  font-size:0.78rem;
+.ed-field-group{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.ed-label{
+  font-size:0.82rem;
   font-weight:800;
   color:#93c5fd;
   text-transform:uppercase;
-  letter-spacing:1px;
-  margin-bottom:4px;
+  letter-spacing:0.8px;
 }
-.ed-field textarea{
+.ed-field-group textarea{
   width:100%;
   font:inherit;
   font-size:15px;
   font-weight:700;
-  padding:9px 12px;
-  border-radius:8px;
-  border:1.5px solid #254b8c;
+  padding:10px 14px;
+  border-radius:10px;
+  border:2px solid #254b8c;
   background:#ffffff;
   color:#0f172a;
   outline:none;
   resize:vertical;
 }
-.ed-field textarea:focus{
+.ed-field-group textarea:focus{
   border-color:#38bdf8;
-  box-shadow:0 0 0 2px rgba(56,189,248,0.3);
+  box-shadow:0 0 0 3px rgba(56,189,248,0.25);
 }
 
-/* 5 Answer Fields with Points */
-.ed-answers-heading{
-  font-size:0.78rem;
-  font-weight:800;
-  color:#93c5fd;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-top:2px;
-}
-.ed-answers-list{
+.ed-form-answers{
   display:flex;
   flex-direction:column;
   gap:8px;
 }
-.ed-ans-row{
+.ed-form-ans-row{
   display:flex;
   align-items:center;
   gap:10px;
   background:#06183d;
   border:1.5px solid #18376e;
   border-radius:10px;
-  padding:6px 10px;
+  padding:7px 10px;
 }
-.ed-ans-pts{
+.ed-ans-pts-pill{
   flex:none;
   width:88px;
   text-align:center;
-  padding:5px 6px;
+  padding:6px 8px;
   border-radius:8px;
   font-size:0.82rem;
   font-weight:900;
   color:#fff;
-  letter-spacing:0.5px;
 }
 .ed-ans-input-wrap{
   flex:1;
@@ -737,7 +816,7 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   font:inherit;
   font-size:14px;
   font-weight:700;
-  padding:6px 10px;
+  padding:7px 10px;
   border-radius:6px;
   border:1.5px solid #294e90;
   background:#ffffff;
@@ -754,14 +833,14 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   border:1px solid #142f5e;
   border-radius:8px;
   padding:8px 12px;
-  font-size:0.78rem;
+  font-size:0.8rem;
   line-height:1.4;
   color:#94a3b8;
 }
 .ed-tip b{color:var(--gold)}
 .ed-tip code{background:#0e295e;padding:1px 5px;border-radius:4px;color:#7dd3fc;font-family:inherit;font-weight:800}
 
-/* Backup details */
+/* Cadangan Details */
 .ed-backup{
   background:#051333;
   border:1px solid #18376e;
@@ -801,14 +880,15 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   gap:8px;
 }
 
-/* Dialog Footer Buttons */
+/* Dialog Footer */
 .dialog-btns{
   padding:12px 20px;
   background:#051433;
   border-top:1.5px solid #1a3870;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
+  display:flex;
+  justify-content:flex-end;
   gap:10px;
+  flex:none;
 }
 .dialog-btns button{
   height:42px;
@@ -816,13 +896,22 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   font-weight:800;
   border-radius:10px;
   color:#ffffff!important;
-  display:flex;
+  display:inline-flex;
   align-items:center;
   justify-content:center;
+  padding:0 20px;
 }
-#eSave{background:#10b981!important;box-shadow:0 3px 0 #059669}
-#eReset{background:#dc2626!important;box-shadow:0 3px 0 #991b1b}
-#eClose{background:#334155!important;border:1px solid #475569!important;box-shadow:0 3px 0 #1e293b}
+.btn-save-main{
+  background:#10b981!important;
+  box-shadow:0 3px 0 #059669;
+  font-size:1rem!important;
+  padding:0 28px!important;
+}
+.btn-close-main{
+  background:#334155!important;
+  border:1px solid #475569!important;
+  box-shadow:0 3px 0 #1e293b;
+}
 
 /* Desktop 100vh lock */
 @media(min-width:900px){
@@ -841,7 +930,8 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   .btns{grid-template-columns:repeat(2,1fr)}
   body{overflow-y:auto;min-height:100vh}
   .wrap{height:auto;min-height:100vh}
-  .dialog-btns{grid-template-columns:1fr}
+  .ed-item-card{flex-direction:column;align-items:stretch}
+  .ed-item-actions{justify-content:flex-end}
 }
 
 @keyframes pop{0%{transform:scale(.2);opacity:0}25%{transform:scale(1);opacity:1}80%{opacity:1}100%{transform:scale(1.15);opacity:0}}
@@ -862,7 +952,7 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   </div>
   <div class="h-tools">
     <button id="bPrev" class="tool-btn" title="Soal Sebelumnya">⬅️ Soal Sebelumnya</button>
-    <button id="bEdit" class="tool-btn" title="Kelola &amp; Edit Soal Bebas">✏️ Edit Soal</button>
+    <button id="bEdit" class="tool-btn" title="Kelola &amp; Edit Bank Soal">✏️ Kelola Soal</button>
     <button id="bSnd" class="tool-btn" title="Tes Suara">🔊 Tes Suara</button>
   </div>
 </header>
@@ -926,54 +1016,38 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
   </div>
 </div>
 
-<!-- Modal Dialog: Kelola & Edit Soal Bebas -->
+<!-- ========================================================
+     MODAL KELOLA SOAL: DAFTAR SOAL & FORM INPUT BERSIH
+     ======================================================== -->
 <dialog id="ed">
   <div class="ed-header">
-    <h2>✏️ Kelola &amp; Edit Soal (Bebas)</h2>
+    <h2>✏️ Kelola Bank Soal Kuis</h2>
     <button class="ed-close-x" id="eCloseX" title="Tutup Modal">✕</button>
   </div>
-  <div class="ed-body">
-    <!-- Pilihan Soal & Aksi Cepat Tambah/Hapus -->
-    <div class="ed-nav-bar">
-      <div class="ed-select-group">
-        <label for="es">Pilih Soal yang Ingin Diedit:</label>
-        <select id="es"></select>
-      </div>
-      <div class="ed-nav-actions">
-        <button type="button" class="btn-tool-sm btn-green" id="eAdd" title="Tambah Soal Baru">➕ Tambah</button>
-        <button type="button" class="btn-tool-sm btn-danger" id="eDel" title="Hapus Soal yang Dipilih">🗑️ Hapus</button>
-      </div>
+
+  <!-- VIEW 1: DAFTAR SOAL LENGKAP -->
+  <div id="edListView" class="ed-view-panel">
+    <!-- Toolbar Aksi Utama -->
+    <div class="ed-toolbar">
+      <button type="button" class="btn-tool-lg btn-green" id="eBtnNew">➕ Tambah Soal Baru</button>
+      <button type="button" class="btn-tool-lg btn-danger" id="eBtnClearAll" title="Hapus semua soal untuk mulai kuis materi sendiri dari nol">🗑️ Kosongkan / Buat Kuis Baru</button>
+      <button type="button" class="btn-tool-lg btn-navy" id="eBtnResetDef" title="Muat 30 soal bawaan Pengetahuan Umum SD">🔄 Muat 30 Soal Bawaan</button>
     </div>
 
-    <!-- Pager navigasi cepat antar soal -->
-    <div class="ed-pager">
-      <button type="button" id="ePrevQ" class="btn-pager">◀ Sebelumnya</button>
-      <span id="eQNumBadge" class="q-num-badge">Soal 1 dari 30</span>
-      <button type="button" id="eNextQ" class="btn-pager">Berikutnya ▶</button>
+    <!-- Ringkasan Jumlah Soal -->
+    <div class="ed-list-summary">
+      <span class="ed-total-badge">Daftar Soal Aktif: <b id="edTotalCount">0</b> Soal</span>
+      <small style="color:#94a3b8">Klik tombol <b>✏️ Edit</b> untuk mengubah, atau <b>🗑️ Hapus</b> untuk membuang soal.</small>
     </div>
 
-    <!-- Form Pertanyaan Kuis -->
-    <div class="ed-field">
-      <label for="eq">Teks Pertanyaan Kuis:</label>
-      <textarea id="eq" rows="2" placeholder="Contoh: Sebutkan hewan yang bertelur!"></textarea>
-    </div>
-
-    <!-- 5 Jawaban Survei -->
-    <div class="ed-answers-heading">
-      Daftar 5 Jawaban Survei (Berdasarkan Urutan Poin):
-    </div>
-    <div id="ea" class="ed-answers-list"></div>
-
-    <div class="ed-tip">
-      💡 <b>Tips Guru:</b> Gunakan garis miring <b>/</b> untuk variasi jawaban murid yang dianggap sama.
-      <br>Contoh: <code>Sepak Bola/bola/futsal</code> atau <code>Kucing/kucing anggora/pus</code>. Tersimpan otomatis di perangkat ini.
-    </div>
+    <!-- Container Daftar Soal (Kartu List) -->
+    <div id="edItemsList" class="ed-items-container"></div>
 
     <!-- Cadangan & Impor / Ekspor Teks -->
     <details class="ed-backup">
-      <summary>📦 Cadangan / Ekspor &amp; Impor Soal (Teks)</summary>
+      <summary>📦 Cadangan / Ekspor &amp; Impor Soal Sekaligus (Teks)</summary>
       <div class="ed-backup-box">
-        <p>Salin teks di bawah untuk menyimpan cadangan, atau tempelkan daftar soal baru lalu klik <b>Terapkan Impor</b>.</p>
+        <p>Salin teks di bawah untuk menyimpan cadangan soal, atau tempelkan daftar soal baru lalu klik <b>Terapkan Impor</b>.</p>
         <textarea id="eRaw" rows="4" placeholder="Format per baris: Pertanyaan|Jawaban1;Jawaban2;Jawaban3;Jawaban4;Jawaban5"></textarea>
         <div class="ed-backup-btns">
           <button type="button" id="eExportBtn" class="btn-tool-sm btn-blue">📋 Muat ke Teks</button>
@@ -981,12 +1055,74 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
         </div>
       </div>
     </details>
+
+    <div class="dialog-btns" style="margin-top:auto">
+      <button type="button" id="eCloseList" class="btn-close-main">Tutup</button>
+    </div>
   </div>
 
-  <div class="dialog-btns">
-    <button id="eSave">💾 Simpan Perubahan</button>
-    <button id="eReset">🔄 Reset Bawaan</button>
-    <button id="eClose">Tutup</button>
+  <!-- VIEW 2: FORM TAMBAH / EDIT SOAL (BERSIH) -->
+  <div id="edFormView" class="ed-view-panel" style="display:none">
+    <div class="ed-form-top">
+      <h3 id="edFormTitle" class="ed-form-title">➕ Tambah Soal Baru</h3>
+      <button type="button" id="eBtnBackToList" class="btn-back">◀ Kembali ke Daftar</button>
+    </div>
+
+    <div class="ed-field-group">
+      <label for="eq" class="ed-label">Teks Pertanyaan Kuis:</label>
+      <textarea id="eq" rows="2" placeholder="Contoh: Sebutkan hewan yang bertelur!"></textarea>
+    </div>
+
+    <div class="ed-label" style="margin-top:4px">
+      5 Jawaban Survei (Paling Populer ke Terendah):
+    </div>
+    <div class="ed-form-answers">
+      <div class="ed-form-ans-row">
+        <div class="ed-ans-pts-pill" style="background:linear-gradient(135deg, #ea580c, #f97316)">100 POIN</div>
+        <div class="ed-ans-input-wrap">
+          <label for="ea0">Jawaban 1 (Paling Populer)</label>
+          <input id="ea0" placeholder="Ketik jawaban utama...">
+        </div>
+      </div>
+      <div class="ed-form-ans-row">
+        <div class="ed-ans-pts-pill" style="background:linear-gradient(135deg, #d97706, #f59e0b)">80 POIN</div>
+        <div class="ed-ans-input-wrap">
+          <label for="ea1">Jawaban 2</label>
+          <input id="ea1" placeholder="Ketik jawaban ke-2...">
+        </div>
+      </div>
+      <div class="ed-form-ans-row">
+        <div class="ed-ans-pts-pill" style="background:linear-gradient(135deg, #2563eb, #3b82f6)">60 POIN</div>
+        <div class="ed-ans-input-wrap">
+          <label for="ea2">Jawaban 3</label>
+          <input id="ea2" placeholder="Ketik jawaban ke-3...">
+        </div>
+      </div>
+      <div class="ed-form-ans-row">
+        <div class="ed-ans-pts-pill" style="background:linear-gradient(135deg, #059669, #10b981)">40 POIN</div>
+        <div class="ed-ans-input-wrap">
+          <label for="ea3">Jawaban 4</label>
+          <input id="ea3" placeholder="Ketik jawaban ke-4...">
+        </div>
+      </div>
+      <div class="ed-form-ans-row">
+        <div class="ed-ans-pts-pill" style="background:linear-gradient(135deg, #7c3aed, #8b5cf6)">20 POIN</div>
+        <div class="ed-ans-input-wrap">
+          <label for="ea4">Jawaban 5</label>
+          <input id="ea4" placeholder="Ketik jawaban ke-5...">
+        </div>
+      </div>
+    </div>
+
+    <div class="ed-tip">
+      💡 <b>Tips Guru:</b> Gunakan garis miring <b>/</b> untuk variasi sebutan jawaban murid yang dianggap sama.
+      <br>Contoh: <code>Sepak Bola/bola/futsal</code> atau <code>Paus/ikan paus</code>.
+    </div>
+
+    <div class="dialog-btns" style="margin-top:auto">
+      <button type="button" id="eBtnCancelForm" class="btn-close-main">Batal</button>
+      <button type="button" id="eBtnSaveForm" class="btn-save-main">💾 Simpan Soal</button>
+    </div>
   </div>
 </dialog>
 
@@ -1029,20 +1165,12 @@ const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const nm=s=>String(s||'').split('/')[0].trim();
 const defData=()=>DEF.map(l=>{const[q,a]=l.split('|');return{q:q.trim(),a:a.split(';').map(x=>x.trim())}});
 
-function getPtsColor(pts){
-  if(pts>=100)return'linear-gradient(135deg, #ea580c, #f97316)';
-  if(pts>=80)return'linear-gradient(135deg, #d97706, #f59e0b)';
-  if(pts>=60)return'linear-gradient(135deg, #2563eb, #3b82f6)';
-  if(pts>=40)return'linear-gradient(135deg, #059669, #10b981)';
-  return'linear-gradient(135deg, #7c3aed, #8b5cf6)';
-}
-
 function load(){
   try{
     const raw=localStorage.getItem('gk100_custom_q')||localStorage.getItem(KEY);
     if(raw){
       const s=JSON.parse(raw);
-      if(Array.isArray(s)&&s.length>0){
+      if(Array.isArray(s)){
         const clean=s.map(item=>{
           if(!item||typeof item.q!=='string')return null;
           let a=Array.isArray(item.a)?item.a.map(x=>String(x||'').trim()):[];
@@ -1067,7 +1195,8 @@ function save(){
   }
 }
 
-let D=load(),i=0,op=[],sc=[0,0],xs=[0,0],t=0,sel=-1,editIndex=0;
+let D=load(),i=0,op=[],sc=[0,0],xs=[0,0],t=0,sel=-1;
+let currentEditTarget=-1; // -1 = buat baru, >=0 = edit soal ke-k
 
 /* ---------- Suara (Web Audio API) ---------- */
 let ac;
@@ -1089,7 +1218,15 @@ function floatPts(p){const e=document.createElement('div');e.className='pts';e.t
 
 /* ---------- Tampilan Utama ---------- */
 function renderQ(){
-  if(!D||D.length===0){D=defData()}
+  if(!D||D.length===0){
+    $('ind').textContent='KUIS BELUM MEMILIKI SOAL';
+    $('q').textContent='Belum ada soal. Klik tombol ✏️ Kelola Soal untuk menambahkan soal baru!';
+    $('cards').innerHTML='<div style="text-align:center;padding:30px;color:#94a3b8;font-size:1.1rem;font-weight:800">Klik "Kelola Soal" di pojok kanan atas untuk mengisi pertanyaan &amp; jawaban kuis.</div>';
+    $('bPrev').disabled=true;
+    $('bNext').disabled=true;
+    upd();
+    return;
+  }
   if(i<0)i=0;
   if(i>=D.length)i=D.length-1;
 
@@ -1115,6 +1252,7 @@ function renderQ(){
 
   $('bPrev').disabled=(i===0);
   $('bPrev').style.opacity=(i===0)?'0.5':'1';
+  $('bNext').disabled=false;
   $('bNext').textContent=i===D.length-1?'🏆 Selesai':'Soal Berikutnya';
   upd();
 }
@@ -1151,6 +1289,7 @@ function lev(a,b){
 }
 
 function find(v){
+  if(!D||D.length===0)return -1;
   v=norm(v);if(!v)return -1;let best=-1,bd=9;
   D[i].a.forEach((s,k)=>s.split('/').forEach(w=>{
     w=norm(w);if(!w)return;
@@ -1172,6 +1311,7 @@ function wrong(){
   toast(xs[t]>=3?'⛔ Kesempatan '+tn(t)+' habis! Oper ke tim lain.':'❌ Salah! '+tn(t)+' mendapat '+xs[t]+' tanda silang','#dc2626');
 }
 function check(){
+  if(!D||D.length===0)return toast('Kuis belum memiliki soal!','#dc2626');
   A();const v=$('inp').value.trim();
   if(!v){toast('Ketik jawaban dulu','#d97706');return}
   const k=find(v);
@@ -1226,126 +1366,161 @@ $('bRst').onclick=()=>{if(confirm('Ulang game dari awal? Skor akan kembali 0.'))
 $('wAgain').onclick=resetGame;
 $('wClose').onclick=()=>$('win').classList.remove('show');
 
-/* ---------- Editor Soal Lengkap & Fleksibel (Bebas) ---------- */
-function populateEdSelect(){
-  const s=$('es');
-  s.innerHTML=D.map((d,k)=>`<option value="${k}">${k+1}. ${esc(d.q.slice(0,50))}${d.q.length>50?'...':''}</option>`).join('');
-  if(editIndex<0)editIndex=0;
-  if(editIndex>=D.length)editIndex=D.length-1;
-  s.value=editIndex;
-  updateEdPager();
+/* ========================================================
+   LOGIKA KELOLA SOAL (DAFTAR SOAL + FORM INPUT BERSIH)
+   ======================================================== */
+function showListView(){
+  $('edListView').style.display='flex';
+  $('edFormView').style.display='none';
+  renderEdItemsList();
 }
 
-function updateEdPager(){
-  $('eQNumBadge').textContent=`Soal ${editIndex+1} dari ${D.length}`;
-  $('ePrevQ').disabled=(editIndex===0);
-  $('eNextQ').disabled=(editIndex===D.length-1);
-  $('eDel').disabled=(D.length<=1);
-}
+function showFormView(targetIndex){
+  currentEditTarget=(targetIndex!==undefined)?targetIndex:-1;
+  $('edListView').style.display='none';
+  $('edFormView').style.display='flex';
 
-function fillEd(){
-  if(editIndex<0||editIndex>=D.length)editIndex=0;
-  const d=D[editIndex];
-  $('eq').value=d.q;
-  $('ea').innerHTML=d.a.map((s,k)=>`
-    <div class="ed-ans-row">
-      <div class="ed-ans-pts" style="background:${getPtsColor(PTS[k])}">${PTS[k]} POIN</div>
-      <div class="ed-ans-input-wrap">
-        <label for="ea${k}">Jawaban ${k+1} (Terpopuler ke-${k+1})</label>
-        <input id="ea${k}" value="${esc(s)}" placeholder="Ketik jawaban (gunakan / untuk alias kata)">
-      </div>
-    </div>
-  `).join('');
-  $('es').value=editIndex;
-  updateEdPager();
-}
-
-$('bEdit').onclick=()=>{
-  editIndex=i;
-  populateEdSelect();
-  fillEd();
-  $('ed').showModal();
-};
-
-$('es').onchange=()=>{
-  editIndex=+$('es').value;
-  fillEd();
-};
-
-$('ePrevQ').onclick=()=>{
-  if(editIndex>0){
-    editIndex--;
-    fillEd();
-  }
-};
-
-$('eNextQ').onclick=()=>{
-  if(editIndex<D.length-1){
-    editIndex++;
-    fillEd();
-  }
-};
-
-/* Tambah Soal Baru Tanpa Batas */
-$('eAdd').onclick=()=>{
-  const newNum=D.length+1;
-  const newQ={
-    q:`Sebutkan pertanyaan baru ke-${newNum}!`,
-    a:['Jawaban 1','Jawaban 2','Jawaban 3','Jawaban 4','Jawaban 5']
-  };
-  D.push(newQ);
-  save();
-  editIndex=D.length-1;
-  populateEdSelect();
-  fillEd();
-  $('eq').focus();
-  $('eq').select();
-  toast(`➕ Soal baru #${newNum} berhasil ditambahkan! Silakan ubah isinya.`,'#10b981');
-};
-
-/* Hapus Soal */
-$('eDel').onclick=()=>{
-  if(D.length<=1){
-    return toast('⚠️ Minimal harus ada 1 soal dalam kuis!','#dc2626');
-  }
-  const currQ=D[editIndex].q;
-  if(!confirm(`Yakin ingin menghapus soal #${editIndex+1}?\n"${currQ}"`))return;
-
-  D.splice(editIndex,1);
-  save();
-  if(editIndex>=D.length)editIndex=D.length-1;
-  if(i>=D.length)i=D.length-1;
-
-  populateEdSelect();
-  fillEd();
-  renderQ();
-  toast('🗑️ Soal berhasil dihapus!','#dc2626');
-};
-
-/* Simpan Soal */
-$('eSave').onclick=()=>{
-  const q=$('eq').value.trim();
-  const a=[0,1,2,3,4].map(n=>($('ea'+n)?$('ea'+n).value.trim():''));
-
-  if(!q){
-    $('eq').focus();
-    return toast('⚠️ Pertanyaan tidak boleh kosong!','#dc2626');
-  }
-  for(let k=0;k<5;k++){
-    if(!a[k]){
-      const el=$('ea'+k);if(el)el.focus();
-      return toast(`⚠️ Jawaban ke-${k+1} harus diisi!`,'#dc2626');
+  if(currentEditTarget>=0&&currentEditTarget<D.length){
+    // Mode EDIT soal yang sudah ada
+    const d=D[currentEditTarget];
+    $('edFormTitle').textContent=`✏️ Edit Soal #${currentEditTarget+1}`;
+    $('eq').value=d.q;
+    for(let k=0;k<5;k++){
+      $('ea'+k).value=d.a[k]||'';
+    }
+  }else{
+    // Mode TAMBAH SOAL BARU (KOSONG & BERSIH)
+    $('edFormTitle').textContent=`➕ Tambah Soal Baru #${D.length+1}`;
+    $('eq').value='';
+    for(let k=0;k<5;k++){
+      $('ea'+k).value='';
     }
   }
 
-  D[editIndex]={q,a};
-  save();
-  populateEdSelect();
-  if(editIndex===i){
-    renderQ();
+  setTimeout(()=>{
+    $('eq').focus();
+  },100);
+}
+
+function renderEdItemsList(){
+  $('edTotalCount').textContent=D.length;
+  const listEl=$('edItemsList');
+
+  if(D.length===0){
+    listEl.innerHTML=`
+      <div class="ed-empty-state">
+        <div style="font-size:3rem;margin-bottom:8px">📭</div>
+        <h3 style="color:var(--gold);margin-bottom:6px">Bank Soal Masih Kosong</h3>
+        <p style="color:#94a3b8;font-size:0.9rem;margin-bottom:14px">Belum ada soal dalam kuis ini. Guru dapat menambahkan pertanyaan materi sendiri dari nol!</p>
+        <button type="button" class="btn-tool-lg btn-green" onclick="showFormView(-1)" style="font-size:0.95rem;padding:9px 20px;margin:auto">
+          ➕ Buat Soal Pertama Sekarang
+        </button>
+      </div>
+    `;
+    return;
   }
-  toast(`✅ Soal #${editIndex+1} berhasil disimpan!`,'#16a34a');
+
+  listEl.innerHTML=D.map((d,k)=>`
+    <div class="ed-item-card">
+      <div class="ed-item-main">
+        <div class="ed-item-q">
+          <span class="ed-item-num">#${k+1}</span>
+          <span class="ed-item-q-text">${esc(d.q)}</span>
+        </div>
+        <div class="ed-item-badges">
+          ${d.a.map((ans,ak)=>`<span class="ed-ans-chip" title="${esc(ans)}"><b>${PTS[ak]}p:</b> ${esc(nm(ans))}</span>`).join('')}
+        </div>
+      </div>
+      <div class="ed-item-actions">
+        <button type="button" class="btn-action-edit" onclick="showFormView(${k})" title="Edit pertanyaan ini">✏️ Edit</button>
+        <button type="button" class="btn-action-del" onclick="deleteSingleQuestion(${k})" title="Hapus soal ini">🗑️ Hapus</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function deleteSingleQuestion(k){
+  const qText=D[k].q;
+  if(!confirm(`Hapus soal #${k+1}?\n"${qText}"`))return;
+
+  D.splice(k,1);
+  save();
+  if(i>=D.length)i=Math.max(0,D.length-1);
+
+  renderEdItemsList();
+  renderQ();
+  toast(`🗑️ Soal #${k+1} berhasil dihapus!`,`#dc2626`);
+}
+
+function clearAllQuestions(){
+  if(D.length===0)return toast('Kuis sudah kosong!','#d97706');
+  if(!confirm('⚠️ Yakin ingin mengosongkan semua soal?\n\nSemua soal yang ada saat ini akan dihapus sehingga Anda dapat mulai membuat kuis materi baru dari nomor 1.')){
+    return;
+  }
+  D=[];
+  save();
+  i=0;
+  renderQ();
+  showFormView(-1); // Langsung membuka form kosong untuk Soal 1
+  toast('🗑️ Bank soal dikosongkan. Silakan isi Soal #1!','#10b981');
+}
+
+function restoreDefaultQuestions(){
+  if(!confirm('Kembalikan semua soal ke 30 soal bawaan Pengetahuan Umum SD Golden Kids?'))return;
+  D=defData();
+  save();
+  i=0;
+  renderEdItemsList();
+  renderQ();
+  toast('🔄 Berhasil memuat 30 soal bawaan Golden Kids!','#4338ca');
+}
+
+function saveFormQuestion(){
+  const q=$('eq').value.trim();
+  const a=[0,1,2,3,4].map(n=>$('ea'+n).value.trim());
+
+  if(!q){
+    $('eq').focus();
+    return toast('⚠️ Teks pertanyaan harus diisi!','#dc2626');
+  }
+  for(let k=0;k<5;k++){
+    if(!a[k]){
+      $('ea'+k).focus();
+      return toast(`⚠️ Jawaban ke-${k+1} harus diisi! (atau ketik tanda strip - jika tidak ada)`,`#dc2626`);
+    }
+  }
+
+  if(currentEditTarget>=0&&currentEditTarget<D.length){
+    // Update
+    D[currentEditTarget]={q,a};
+    toast(`✅ Soal #${currentEditTarget+1} berhasil diperbarui!`,'#16a34a');
+  }else{
+    // Tambah baru
+    D.push({q,a});
+    toast(`➕ Soal #${D.length} berhasil ditambahkan!`,'#16a34a');
+  }
+
+  save();
+  renderQ();
+  showListView();
+}
+
+/* Tombol Modal Events */
+$('bEdit').onclick=()=>{
+  showListView();
+  $('ed').showModal();
 };
+
+$('eBtnNew').onclick=()=>showFormView(-1);
+$('eBtnClearAll').onclick=clearAllQuestions;
+$('eBtnResetDef').onclick=restoreDefaultQuestions;
+
+$('eBtnBackToList').onclick=showListView;
+$('eBtnCancelForm').onclick=showListView;
+$('eBtnSaveForm').onclick=saveFormQuestion;
+
+$('eCloseList').onclick=()=>$('ed').close();
+$('eCloseX').onclick=()=>$('ed').close();
 
 /* Cadangan Ekspor / Impor */
 $('eExportBtn').onclick=()=>{
@@ -1389,32 +1564,10 @@ $('eImportBtn').onclick=()=>{
   D=parsed;
   save();
   i=0;
-  editIndex=0;
-  populateEdSelect();
-  fillEd();
+  renderEdItemsList();
   renderQ();
   toast(`📥 Berhasil mengimpor ${parsed.length} soal!`,'#16a34a');
 };
-
-/* Reset ke Soal Default */
-$('eReset').onclick=()=>{
-  if(confirm('Kembalikan semua soal & jawaban ke bawaan default Golden Kids (30 soal)?')){
-    D=defData();
-    try{
-      localStorage.removeItem(KEY);
-      localStorage.removeItem('gk100_custom_q');
-    }catch(e){}
-    i=0;
-    editIndex=0;
-    populateEdSelect();
-    fillEd();
-    renderQ();
-    toast('🔄 Soal dikembalikan ke default Golden Kids!','#4338ca');
-  }
-};
-
-$('eClose').onclick=()=>$('ed').close();
-$('eCloseX').onclick=()=>$('ed').close();
 
 /* Inisialisasi awal */
 renderQ();
