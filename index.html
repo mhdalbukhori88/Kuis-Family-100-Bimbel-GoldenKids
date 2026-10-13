@@ -474,12 +474,22 @@ button:active{transform:translateY(1px)}
 #toast{position:fixed;left:50%;top:max(12px,env(safe-area-inset-top));transform:translate(-50%,-150%);padding:10px 20px;border-radius:14px;font-weight:800;z-index:70;transition:.35s;max-width:92vw;text-align:center;box-shadow:0 6px 20px #0008}
 #toast.show{transform:translate(-50%,0)}
 .pts{position:absolute;left:50%;top:30%;transform:translateX(-50%);background:#10b981;color:#fff;font-weight:800;font-size:1.3rem;padding:2px 14px;border-radius:99px;white-space:nowrap;pointer-events:none;animation:rise 1.5s forwards;z-index:5}
-dialog{border:0;border-radius:20px;padding:18px;width:min(94vw,540px);background:#0f2757;border:2px solid #38bdf8;color:#fff;margin:auto;max-height:90vh;overflow-y:auto}
-dialog::backdrop{background:#000a}
-dialog h2{color:var(--gold);margin-bottom:10px;font-family:'Merriweather',serif}
-dialog label{display:block;font-weight:700;margin:8px 0 3px;font-size:.95rem}
-dialog input,dialog textarea,dialog select{width:100%;font:inherit;font-size:16px;padding:8px 10px;border-radius:10px;border:2px solid #ffffff44;background:#fff;color:#1b1464}
-dialog small{opacity:.8;display:block;margin-top:6px}
+dialog{border:2px solid #38bdf8;border-radius:20px;padding:20px 24px;width:min(92vw,530px);background:#0b1f48;color:#fff;box-shadow:0 12px 40px rgba(0,0,0,0.8),0 0 24px rgba(56,189,248,0.3);margin:auto;max-height:86vh;overflow-y:auto}
+dialog::backdrop{background:#000c;backdrop-filter:blur(4px)}
+dialog h2{color:var(--gold);margin:0 0 12px;font-family:'Merriweather',serif;font-size:1.35rem;text-align:center;border-bottom:1.5px solid #1e3a70;padding-bottom:8px}
+dialog label{display:block;font-weight:800;margin:10px 0 4px;font-size:0.88rem;color:#93c5fd;text-transform:uppercase;letter-spacing:0.5px}
+dialog select,dialog textarea,dialog input{width:100%;font:inherit;font-size:15px;font-weight:700;padding:8px 12px;border-radius:8px;border:1.5px solid #254b8c;background:#ffffff;color:#0f172a;outline:none;transition:border-color .2s}
+dialog select:focus,dialog textarea:focus,dialog input:focus{border-color:#38bdf8;box-shadow:0 0 0 2px rgba(56,189,248,0.3)}
+dialog small{display:block;margin:10px 0 14px;font-size:0.78rem;line-height:1.4;color:#94a3b8;background:#071530;padding:8px 12px;border-radius:8px;border:1px solid #172d57}
+dialog small b{color:#ffbe1a}
+.dialog-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.dialog-btns button{height:42px;font-size:0.95rem;font-weight:800;border-radius:10px;color:#ffffff!important;display:flex;align-items:center;justify-content:center;cursor:pointer;border:0;transition:filter .15s,transform .1s}
+.dialog-btns button:hover{filter:brightness(1.15)}
+#eSave{background:#10b981!important;box-shadow:0 3px 0 #059669}
+#eClose{background:#334155!important;border:1px solid #475569!important;box-shadow:0 3px 0 #1e293b}
+#eReset{background:#dc2626!important;box-shadow:0 3px 0 #991b1b}
+#wAgain{background:#10b981!important;color:#fff!important;height:44px;border-radius:10px;font-weight:800;font-size:1rem}
+#wClose{background:#334155!important;color:#fff!important;height:44px;border-radius:10px;font-weight:800;font-size:1rem;border:1px solid #475569}
 #win{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:900;padding:14px}
 #win.show{display:grid}
 .wb{background:linear-gradient(180deg,#0f2b66,#081c45);border:3px solid var(--gold);border-radius:24px;padding:22px;text-align:center;width:min(94vw,520px);max-height:90vh;overflow-y:auto;animation:pop2 .6s}
@@ -580,7 +590,7 @@ dialog small{opacity:.8;display:block;margin-top:6px}
   <label for="eq">Pertanyaan</label><textarea id="eq" rows="2"></textarea>
   <div id="ea"></div>
   <small>Isi jawaban murid. Jawaban 1 = 100 poin, 2 = 80, 3 = 60, 4 = 40, 5 = 20. Untuk kata lain yang dianggap sama, pisahkan dengan garis miring, contoh: <b>Sepak Bola/bola/futsal</b>. Tersimpan otomatis di perangkat ini.</small>
-  <div class="btns" style="grid-template-columns:repeat(3,1fr)"><button class="go" id="eSave">Simpan</button><button id="eClose">Tutup</button><button class="no" id="eReset">Reset Semua</button></div>
+  <div class="dialog-btns"><button id="eSave">Simpan</button><button id="eClose">Tutup</button><button id="eReset">Reset Semua</button></div>
 </dialog>
 
 <script>
