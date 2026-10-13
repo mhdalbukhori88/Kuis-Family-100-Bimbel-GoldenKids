@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Family 100 Bimbel Golden Kids</title>
 <link rel="icon" type="image/png" href="logo.png">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -53,15 +52,18 @@ header{
   filter:drop-shadow(0 2px 6px rgba(0,0,0,.4));
   flex:none;
 }
-.logo{
+.logo-fallback{
   width:50px;
   height:50px;
-  border-radius:50%;
+  border-radius:12px;
   background:#ffffff22;
   display:grid;
   place-items:center;
-  font-size:28px;
+  font-size:20px;
+  font-weight:900;
+  color:var(--gold);
   flex:none;
+  border:1.5px solid #ffffff40;
 }
 .h-titles{
   flex:1;
@@ -212,7 +214,7 @@ main{
   text-shadow:0 0 6px #ef4444;
 }
 
-/* Center Board (Sedikit diperkecil lebarnya, Soal dibesarkan untuk infokus) */
+/* Center Board */
 .board{
   grid-area:c;
   background:var(--board-bg);
@@ -244,7 +246,6 @@ main{
   box-shadow:0 3px 8px rgba(0,0,0,0.3);
   flex:none;
 }
-/* Pertanyaan Kuis Besar & Jelas Terlihat dari Belakang Kelas */
 .q{
   font-family:'Merriweather','Georgia',serif;
   font-weight:900;
@@ -342,7 +343,7 @@ main{
   flex:none;
 }
 
-/* Card Back (Revealed BENAR / HIJAU) */
+/* Card Back */
 .back{
   transform:rotateY(180deg);
   background:linear-gradient(180deg, #16a34a 0%, #15803d 55%, #14532d 100%);
@@ -397,7 +398,7 @@ main{
   flex:none;
 }
 
-/* Control Panel (.ctl) */
+/* Control Panel */
 .ctl{
   flex:none;
   background:#06183d;
@@ -491,7 +492,7 @@ button:active{transform:translateY(1px)}
 
 #fl{position:fixed;inset:0;pointer-events:none;opacity:0;z-index:50}
 #fl.g{background:#22c55e;animation:fl .7s}#fl.r{background:#ef4444;animation:fl .7s}
-#bigx{position:fixed;inset:0;display:none;place-items:center;font-size:55vmin;pointer-events:none;z-index:60;text-shadow:0 0 40px #000a}
+#bigx{position:fixed;inset:0;display:none;place-items:center;font-size:55vmin;pointer-events:none;z-index:60;color:#ef4444;font-weight:900;text-shadow:0 0 40px #000a}
 #bigx.show{display:grid;animation:pop 1s forwards}
 #toast{position:fixed;left:50%;top:max(12px,env(safe-area-inset-top));transform:translate(-50%,-150%);padding:10px 22px;border-radius:14px;font-weight:800;z-index:70;transition:.35s;max-width:92vw;text-align:center;box-shadow:0 6px 20px #0008;font-size:0.95rem}
 #toast.show{transform:translate(-50%,0)}
@@ -500,7 +501,8 @@ button:active{transform:translateY(1px)}
 /* Win Modal */
 #win{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:900;padding:14px}
 #win.show{display:grid}
-.wb{background:linear-gradient(180deg,#0f2b66,#081c45);border:3px solid var(--gold);border-radius:24px;padding:22px;text-align:center;width:min(94vw,520px);max-height:90vh;overflow-y:auto;animation:pop2 .6s}
+.wb{background:linear-gradient(180deg,#0f2b66,#081c45);border:3px solid var(--gold);border-radius:24px;padding:24px;text-align:center;width:min(94vw,520px);max-height:90vh;overflow-y:auto;animation:pop2 .6s}
+.wb-badge{display:inline-block;background:var(--gold);color:#071940;font-weight:900;padding:4px 16px;border-radius:99px;font-size:0.85rem;letter-spacing:1px;margin-bottom:10px}
 .wb h2{font-size:clamp(1.8rem,7vw,2.8rem);color:var(--gold);font-family:'Merriweather',serif}
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
 .vs div{background:#ffffff1f;border-radius:14px;padding:10px;font-weight:700}.vs b{display:block;font-size:2.4rem;color:var(--gold);line-height:1.1;font-family:'Merriweather',serif}
@@ -508,9 +510,7 @@ button:active{transform:translateY(1px)}
 #wClose{background:#334155!important;color:#fff!important;height:44px;border-radius:10px;font-weight:800;font-size:1rem;border:1px solid #475569}
 #fx{position:fixed;inset:0;pointer-events:none;z-index:1000}
 
-/* ========================================================
-   MODAL PENGELOLA SOAL BARU: DAFTAR SOAL & FORM INPUT BERSIH
-   ======================================================== */
+/* Dialog Kelola Soal */
 dialog#ed{
   border:2.5px solid var(--gold);
   border-radius:22px;
@@ -544,9 +544,7 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
   margin:0;
   font-family:'Merriweather',serif;
   font-size:1.28rem;
-  display:flex;
-  align-items:center;
-  gap:8px;
+  letter-spacing:0.5px;
 }
 .ed-close-x{
   background:#ffffff15;
@@ -577,7 +575,7 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
   gap:12px;
 }
 
-/* Toolbar di View Daftar Soal */
+/* Toolbar */
 .ed-toolbar{
   display:flex;
   gap:10px;
@@ -619,7 +617,7 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
   font-size:1.05rem;
 }
 
-/* List Items Soal */
+/* List Items */
 .ed-items-container{
   display:flex;
   flex-direction:column;
@@ -694,7 +692,7 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
 .btn-action-edit{
   background:#2563eb;
   color:#fff;
-  padding:7px 12px;
+  padding:7px 14px;
   border-radius:8px;
   font-size:0.85rem;
   font-weight:800;
@@ -702,7 +700,7 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
 .btn-action-del{
   background:#dc2626;
   color:#fff;
-  padding:7px 12px;
+  padding:7px 14px;
   border-radius:8px;
   font-size:0.85rem;
   font-weight:800;
@@ -946,14 +944,14 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
 <body>
 <div class="wrap">
 <header>
-  <img id="logo" src="logo.png" alt="Family 100" onerror="this.outerHTML='<span class=logo>🌟</span>'">
+  <img id="logo" src="logo.png" alt="Family 100" onerror="this.outerHTML='<span class=logo-fallback>GK</span>'">
   <div class="h-titles">
     <h1>Family 100 Bimbel Golden Kids</h1>
   </div>
   <div class="h-tools">
-    <button id="bPrev" class="tool-btn" title="Soal Sebelumnya">⬅️ Soal Sebelumnya</button>
-    <button id="bEdit" class="tool-btn" title="Kelola &amp; Edit Bank Soal">✏️ Kelola Soal</button>
-    <button id="bSnd" class="tool-btn" title="Tes Suara">🔊 Tes Suara</button>
+    <button id="bPrev" class="tool-btn" title="Soal Sebelumnya">&larr; Soal Sebelumnya</button>
+    <button id="bEdit" class="tool-btn" title="Kelola &amp; Edit Bank Soal">Kelola Soal</button>
+    <button id="bSnd" class="tool-btn" title="Tes Suara">Tes Suara</button>
   </div>
 </header>
 <main>
@@ -997,12 +995,12 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
 </section>
 </div>
 
-<div id="fl"></div><div id="bigx">❌</div><div id="toast"></div>
+<div id="fl"></div><div id="bigx">✕</div><div id="toast"></div>
 <canvas id="fx"></canvas>
 
 <div id="win">
   <div class="wb">
-    <div style="font-size:3rem">🏆</div>
+    <div class="wb-badge">HASIL PERMAINAN</div>
     <h2 id="wt"></h2>
     <div class="vs">
       <div><span id="wn0"></span><b id="ws0"></b></div>
@@ -1016,42 +1014,36 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
   </div>
 </div>
 
-<!-- ========================================================
-     MODAL KELOLA SOAL: DAFTAR SOAL & FORM INPUT BERSIH
-     ======================================================== -->
+<!-- MODAL KELOLA SOAL -->
 <dialog id="ed">
   <div class="ed-header">
-    <h2>✏️ Kelola Bank Soal Kuis</h2>
+    <h2>Kelola Bank Soal Kuis</h2>
     <button class="ed-close-x" id="eCloseX" title="Tutup Modal">✕</button>
   </div>
 
   <!-- VIEW 1: DAFTAR SOAL LENGKAP -->
   <div id="edListView" class="ed-view-panel">
-    <!-- Toolbar Aksi Utama -->
     <div class="ed-toolbar">
-      <button type="button" class="btn-tool-lg btn-green" id="eBtnNew">➕ Tambah Soal Baru</button>
-      <button type="button" class="btn-tool-lg btn-danger" id="eBtnClearAll" title="Hapus semua soal untuk mulai kuis materi sendiri dari nol">🗑️ Kosongkan / Buat Kuis Baru</button>
-      <button type="button" class="btn-tool-lg btn-navy" id="eBtnResetDef" title="Muat 30 soal bawaan Pengetahuan Umum SD">🔄 Muat 30 Soal Bawaan</button>
+      <button type="button" class="btn-tool-lg btn-green" id="eBtnNew">+ Tambah Soal Baru</button>
+      <button type="button" class="btn-tool-lg btn-danger" id="eBtnClearAll" title="Hapus semua soal untuk mulai kuis materi sendiri dari nol">Kosongkan / Buat Kuis Baru</button>
+      <button type="button" class="btn-tool-lg btn-navy" id="eBtnResetDef" title="Muat 30 soal bawaan Pengetahuan Umum SD">Muat 30 Soal Bawaan</button>
     </div>
 
-    <!-- Ringkasan Jumlah Soal -->
     <div class="ed-list-summary">
       <span class="ed-total-badge">Daftar Soal Aktif: <b id="edTotalCount">0</b> Soal</span>
-      <small style="color:#94a3b8">Klik tombol <b>✏️ Edit</b> untuk mengubah, atau <b>🗑️ Hapus</b> untuk membuang soal.</small>
+      <small style="color:#94a3b8">Klik tombol <b>Edit</b> untuk mengubah, atau <b>Hapus</b> untuk membuang soal.</small>
     </div>
 
-    <!-- Container Daftar Soal (Kartu List) -->
     <div id="edItemsList" class="ed-items-container"></div>
 
-    <!-- Cadangan & Impor / Ekspor Teks -->
     <details class="ed-backup">
-      <summary>📦 Cadangan / Ekspor &amp; Impor Soal Sekaligus (Teks)</summary>
+      <summary>Cadangan / Ekspor &amp; Impor Soal (Format Teks)</summary>
       <div class="ed-backup-box">
         <p>Salin teks di bawah untuk menyimpan cadangan soal, atau tempelkan daftar soal baru lalu klik <b>Terapkan Impor</b>.</p>
         <textarea id="eRaw" rows="4" placeholder="Format per baris: Pertanyaan|Jawaban1;Jawaban2;Jawaban3;Jawaban4;Jawaban5"></textarea>
         <div class="ed-backup-btns">
-          <button type="button" id="eExportBtn" class="btn-tool-sm btn-blue">📋 Muat ke Teks</button>
-          <button type="button" id="eImportBtn" class="btn-tool-sm btn-green">📥 Terapkan Impor</button>
+          <button type="button" id="eExportBtn" class="btn-tool-sm btn-blue">Salin ke Teks</button>
+          <button type="button" id="eImportBtn" class="btn-tool-sm btn-green">Terapkan Impor</button>
         </div>
       </div>
     </details>
@@ -1061,11 +1053,11 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
     </div>
   </div>
 
-  <!-- VIEW 2: FORM TAMBAH / EDIT SOAL (BERSIH) -->
+  <!-- VIEW 2: FORM TAMBAH / EDIT SOAL -->
   <div id="edFormView" class="ed-view-panel" style="display:none">
     <div class="ed-form-top">
-      <h3 id="edFormTitle" class="ed-form-title">➕ Tambah Soal Baru</h3>
-      <button type="button" id="eBtnBackToList" class="btn-back">◀ Kembali ke Daftar</button>
+      <h3 id="edFormTitle" class="ed-form-title">Tambah Soal Baru</h3>
+      <button type="button" id="eBtnBackToList" class="btn-back">&larr; Kembali ke Daftar</button>
     </div>
 
     <div class="ed-field-group">
@@ -1115,13 +1107,13 @@ dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
     </div>
 
     <div class="ed-tip">
-      💡 <b>Tips Guru:</b> Gunakan garis miring <b>/</b> untuk variasi sebutan jawaban murid yang dianggap sama.
+      <b>Tips Guru:</b> Gunakan garis miring <b>/</b> untuk variasi sebutan jawaban murid yang dianggap sama.
       <br>Contoh: <code>Sepak Bola/bola/futsal</code> atau <code>Paus/ikan paus</code>.
     </div>
 
     <div class="dialog-btns" style="margin-top:auto">
       <button type="button" id="eBtnCancelForm" class="btn-close-main">Batal</button>
-      <button type="button" id="eBtnSaveForm" class="btn-save-main">💾 Simpan Soal</button>
+      <button type="button" id="eBtnSaveForm" class="btn-save-main">Simpan Soal</button>
     </div>
   </div>
 </dialog>
@@ -1196,7 +1188,7 @@ function save(){
 }
 
 let D=load(),i=0,op=[],sc=[0,0],xs=[0,0],t=0,sel=-1;
-let currentEditTarget=-1; // -1 = buat baru, >=0 = edit soal ke-k
+let currentEditTarget=-1;
 
 /* ---------- Suara (Web Audio API) ---------- */
 let ac;
@@ -1220,7 +1212,7 @@ function floatPts(p){const e=document.createElement('div');e.className='pts';e.t
 function renderQ(){
   if(!D||D.length===0){
     $('ind').textContent='KUIS BELUM MEMILIKI SOAL';
-    $('q').textContent='Belum ada soal. Klik tombol ✏️ Kelola Soal untuk menambahkan soal baru!';
+    $('q').textContent='Belum ada soal. Klik tombol "Kelola Soal" untuk menambahkan soal baru!';
     $('cards').innerHTML='<div style="text-align:center;padding:30px;color:#94a3b8;font-size:1.1rem;font-weight:800">Klik "Kelola Soal" di pojok kanan atas untuk mengisi pertanyaan &amp; jawaban kuis.</div>';
     $('bPrev').disabled=true;
     $('bNext').disabled=true;
@@ -1253,7 +1245,7 @@ function renderQ(){
   $('bPrev').disabled=(i===0);
   $('bPrev').style.opacity=(i===0)?'0.5':'1';
   $('bNext').disabled=false;
-  $('bNext').textContent=i===D.length-1?'🏆 Selesai':'Soal Berikutnya';
+  $('bNext').textContent=i===D.length-1?'Selesai':'Soal Berikutnya';
   upd();
 }
 
@@ -1261,7 +1253,7 @@ function upd(){
   [0,1].forEach(n=>{
     $('s'+n).textContent=sc[n];
     const p=$('t'+n);p.classList.toggle('on',t==n);
-    const tu=p.querySelector('.turn');if(tu)tu.textContent=t==n?'⭐ Giliran main':'';
+    const tu=p.querySelector('.turn');if(tu)tu.textContent=t==n?'Giliran main':'';
     p.querySelector('.xs').innerHTML=[0,1,2].map(k=>`<div class="x-badge ${k<xs[n]?'active':''}"><span class="x-mark">✕</span></div>`).join('');
   });
   const ht=$('helpText');
@@ -1303,12 +1295,12 @@ function find(v){
 const tn=n=>$('n'+n).textContent.trim()||('TIM '+(n+1));
 function award(k){
   openCard(k);sc[t]+=PTS[k];upd();floatPts(PTS[k]);
-  S.ok();flash('g');inpState('ok');toast('✅ Benar! '+nm(D[i].a[k])+' (+'+PTS[k]+' Poin)','#16a34a');
+  S.ok();flash('g');inpState('ok');toast('Benar! '+nm(D[i].a[k])+' (+'+PTS[k]+' Poin)','#16a34a');
 }
 function wrong(){
   if(xs[t]<3)xs[t]++;upd();
   bigX();S.bad();flash('r');inpState('bad');
-  toast(xs[t]>=3?'⛔ Kesempatan '+tn(t)+' habis! Oper ke tim lain.':'❌ Salah! '+tn(t)+' mendapat '+xs[t]+' tanda silang','#dc2626');
+  toast(xs[t]>=3?'Kesempatan '+tn(t)+' habis! Oper ke tim lain.':'Salah! '+tn(t)+' mendapat '+xs[t]+' tanda silang','#dc2626');
 }
 function check(){
   if(!D||D.length===0)return toast('Kuis belum memiliki soal!','#dc2626');
@@ -1381,16 +1373,14 @@ function showFormView(targetIndex){
   $('edFormView').style.display='flex';
 
   if(currentEditTarget>=0&&currentEditTarget<D.length){
-    // Mode EDIT soal yang sudah ada
     const d=D[currentEditTarget];
-    $('edFormTitle').textContent=`✏️ Edit Soal #${currentEditTarget+1}`;
+    $('edFormTitle').textContent=`Edit Soal #${currentEditTarget+1}`;
     $('eq').value=d.q;
     for(let k=0;k<5;k++){
       $('ea'+k).value=d.a[k]||'';
     }
   }else{
-    // Mode TAMBAH SOAL BARU (KOSONG & BERSIH)
-    $('edFormTitle').textContent=`➕ Tambah Soal Baru #${D.length+1}`;
+    $('edFormTitle').textContent=`Tambah Soal Baru #${D.length+1}`;
     $('eq').value='';
     for(let k=0;k<5;k++){
       $('ea'+k).value='';
@@ -1409,11 +1399,10 @@ function renderEdItemsList(){
   if(D.length===0){
     listEl.innerHTML=`
       <div class="ed-empty-state">
-        <div style="font-size:3rem;margin-bottom:8px">📭</div>
         <h3 style="color:var(--gold);margin-bottom:6px">Bank Soal Masih Kosong</h3>
-        <p style="color:#94a3b8;font-size:0.9rem;margin-bottom:14px">Belum ada soal dalam kuis ini. Guru dapat menambahkan pertanyaan materi sendiri dari nol!</p>
+        <p style="color:#94a3b8;font-size:0.9rem;margin-bottom:14px">Belum ada soal dalam kuis ini. Guru dapat menambahkan pertanyaan materi sendiri dari nol.</p>
         <button type="button" class="btn-tool-lg btn-green" onclick="showFormView(-1)" style="font-size:0.95rem;padding:9px 20px;margin:auto">
-          ➕ Buat Soal Pertama Sekarang
+          + Buat Soal Pertama Sekarang
         </button>
       </div>
     `;
@@ -1432,8 +1421,8 @@ function renderEdItemsList(){
         </div>
       </div>
       <div class="ed-item-actions">
-        <button type="button" class="btn-action-edit" onclick="showFormView(${k})" title="Edit pertanyaan ini">✏️ Edit</button>
-        <button type="button" class="btn-action-del" onclick="deleteSingleQuestion(${k})" title="Hapus soal ini">🗑️ Hapus</button>
+        <button type="button" class="btn-action-edit" onclick="showFormView(${k})" title="Edit pertanyaan ini">Edit</button>
+        <button type="button" class="btn-action-del" onclick="deleteSingleQuestion(${k})" title="Hapus soal ini">Hapus</button>
       </div>
     </div>
   `).join('');
@@ -1449,20 +1438,20 @@ function deleteSingleQuestion(k){
 
   renderEdItemsList();
   renderQ();
-  toast(`🗑️ Soal #${k+1} berhasil dihapus!`,`#dc2626`);
+  toast(`Soal #${k+1} berhasil dihapus!`,`#dc2626`);
 }
 
 function clearAllQuestions(){
   if(D.length===0)return toast('Kuis sudah kosong!','#d97706');
-  if(!confirm('⚠️ Yakin ingin mengosongkan semua soal?\n\nSemua soal yang ada saat ini akan dihapus sehingga Anda dapat mulai membuat kuis materi baru dari nomor 1.')){
+  if(!confirm('Yakin ingin mengosongkan semua soal?\n\nSemua soal yang ada saat ini akan dihapus sehingga Anda dapat mulai membuat kuis materi baru dari nomor 1.')){
     return;
   }
   D=[];
   save();
   i=0;
   renderQ();
-  showFormView(-1); // Langsung membuka form kosong untuk Soal 1
-  toast('🗑️ Bank soal dikosongkan. Silakan isi Soal #1!','#10b981');
+  showFormView(-1);
+  toast('Bank soal dikosongkan. Silakan isi Soal #1!','#10b981');
 }
 
 function restoreDefaultQuestions(){
@@ -1472,7 +1461,7 @@ function restoreDefaultQuestions(){
   i=0;
   renderEdItemsList();
   renderQ();
-  toast('🔄 Berhasil memuat 30 soal bawaan Golden Kids!','#4338ca');
+  toast('Berhasil memuat 30 soal bawaan Golden Kids!','#4338ca');
 }
 
 function saveFormQuestion(){
@@ -1481,23 +1470,21 @@ function saveFormQuestion(){
 
   if(!q){
     $('eq').focus();
-    return toast('⚠️ Teks pertanyaan harus diisi!','#dc2626');
+    return toast('Teks pertanyaan harus diisi!','#dc2626');
   }
   for(let k=0;k<5;k++){
     if(!a[k]){
       $('ea'+k).focus();
-      return toast(`⚠️ Jawaban ke-${k+1} harus diisi! (atau ketik tanda strip - jika tidak ada)`,`#dc2626`);
+      return toast(`Jawaban ke-${k+1} harus diisi! (atau ketik tanda strip - jika tidak ada)`,`#dc2626`);
     }
   }
 
   if(currentEditTarget>=0&&currentEditTarget<D.length){
-    // Update
     D[currentEditTarget]={q,a};
-    toast(`✅ Soal #${currentEditTarget+1} berhasil diperbarui!`,'#16a34a');
+    toast(`Soal #${currentEditTarget+1} berhasil diperbarui!`,'#16a34a');
   }else{
-    // Tambah baru
     D.push({q,a});
-    toast(`➕ Soal #${D.length} berhasil ditambahkan!`,'#16a34a');
+    toast(`Soal #${D.length} berhasil ditambahkan!`,'#16a34a');
   }
 
   save();
@@ -1528,18 +1515,18 @@ $('eExportBtn').onclick=()=>{
   $('eRaw').value=raw;
   if(navigator.clipboard&&navigator.clipboard.writeText){
     navigator.clipboard.writeText(raw).then(()=>{
-      toast('📋 Semua soal disalin ke clipboard!','#0284c7');
+      toast('Semua soal disalin ke clipboard!','#0284c7');
     }).catch(()=>{
-      toast('📋 Teks soal siap disalin dari kotak di bawah!','#0284c7');
+      toast('Teks soal siap disalin dari kotak di bawah!','#0284c7');
     });
   }else{
-    toast('📋 Teks soal dimuat ke kotak di bawah!','#0284c7');
+    toast('Teks soal dimuat ke kotak di bawah!','#0284c7');
   }
 };
 
 $('eImportBtn').onclick=()=>{
   const txt=$('eRaw').value.trim();
-  if(!txt)return toast('⚠️ Kotak teks impor masih kosong!','#dc2626');
+  if(!txt)return toast('Kotak teks impor masih kosong!','#dc2626');
 
   const lines=txt.split('\n').map(l=>l.trim()).filter(Boolean);
   const parsed=[];
@@ -1556,7 +1543,7 @@ $('eImportBtn').onclick=()=>{
   }
 
   if(parsed.length===0){
-    return toast('⚠️ Format tidak valid! Contoh: Pertanyaan|Jwb1;Jwb2;Jwb3;Jwb4;Jwb5','#dc2626');
+    return toast('Format tidak valid! Contoh: Pertanyaan|Jwb1;Jwb2;Jwb3;Jwb4;Jwb5','#dc2626');
   }
 
   if(!confirm(`Terapkan impor ${parsed.length} soal? Soal lama akan digantikan dengan daftar ini.`))return;
@@ -1566,7 +1553,7 @@ $('eImportBtn').onclick=()=>{
   i=0;
   renderEdItemsList();
   renderQ();
-  toast(`📥 Berhasil mengimpor ${parsed.length} soal!`,'#16a34a');
+  toast(`Berhasil mengimpor ${parsed.length} soal!`,'#16a34a');
 };
 
 /* Inisialisasi awal */
